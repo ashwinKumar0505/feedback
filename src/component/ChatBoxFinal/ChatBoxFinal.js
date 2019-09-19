@@ -2,7 +2,7 @@ import React from "react";
 import Users from "../../component/ChatBox/Users/Users";
 import classes from "./ChatBoxFinal.module.css";
 const ChatBoxFinal = props => {
-  console.log(props)
+  console.log(props);
   return (
     <div className={classes.ChatBoxInitial}>
       <div className={classes.UpperChatBox}>
@@ -16,25 +16,36 @@ const ChatBoxFinal = props => {
             style={{ fontSize: "20px", color: "white", cursor: "pointer" }}
             onClick={props.changeToInitial}
           ></i>
-          <p
-            style={{ fontWeight: "400", color: "white"  }}
-          >
-            Send a message
-          </p>
+          <p style={{ fontWeight: "400", color: "white" }}>Send a message</p>
         </div>
         <Users />
-        <p style={{ fontWeight: "500", color: "white", fontSize:"1.2em",marginBottom:0}}>
+        <p
+          style={{
+            fontWeight: "500",
+            color: "white",
+            fontSize: "1.2em",
+            marginBottom: 0,
+          }}
+        >
           Start a conversation
         </p>
-          <p style={{ fontWeight: "300", color: "white", margin: 0 }}>
+        <p style={{ fontWeight: "300", color: "white", margin: 0 }}>
           We usually respond in a few hours
         </p>
       </div>
-    <div className={classes.Reply}>
+      <div className={classes.bottomOfFirstPara}></div>
+      <div className={classes.Reply}>
         <h3>We're on it!</h3>
-        <p> You’ll receive an email reply within a few hours. You can view and update your message in<span className={classes.prevConv} onClick={props.changeToPrevConv}> Previous Conversations.</span></p>
+        <p>
+          {" "}
+          You’ll receive an email reply within a few hours. You can view and
+          update your message in
+          <span className={classes.prevConv} onClick={props.changeToPrevConv}>
+            {" "}
+            Previous Conversations.
+          </span>
+        </p>
       </div>
-      
     </div>
   );
 };
