@@ -8,7 +8,9 @@
   padding-bottom: 40px;
 }
 
-.Form input {
+.name,
+.email,
+.subject {
   width: 90%;
   height: 35px;
   margin: 3px;
@@ -40,16 +42,17 @@
 .TextArea i {
   position: relative;
   right: -135px;
-  top: px;
   bottom: 10px;
   background-color: white;
   outline: none;
   border: none;
   cursor: pointer;
+  color: #c1cbd4;
+  display: inline-block;
 }
 
-i:hover {
-  color: black
+.TextArea i:hover {
+  color: rgb(0, 0, 0, 0.7);
 }
 
 .TextArea {
@@ -61,7 +64,8 @@ i:hover {
   height: 90px;
   border: 1px solid #9a9a9a;
   background-color: #ffffff;
-  
+  position: relative;
+
 }
 
 .SendButton {
@@ -86,4 +90,16 @@ i:hover {
   margin: 0;
   flex: 1;
   align-self: flex-start
+}
+
+.fileUpload {
+  width: 32px;
+  height: 100px;
+  position: absolute;
+  top: 67px;
+  right: -3px;
+  z-index: 1;
+  opacity: 0;
+  display: inline-block;
+  cursor: pointer;
 }

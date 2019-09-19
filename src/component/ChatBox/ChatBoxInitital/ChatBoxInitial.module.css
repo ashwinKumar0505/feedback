@@ -24,13 +24,14 @@
   border-radius: 5px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px 0px;
+  transition: box-shadow 200ms linear 0s, transform 200ms linear 0s;
 
 }
 
 .EmailDiv:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
-  transform: translateY(-1px);
-  transition: box-shadow 200ms linear 0s, transform 200ms linear 0s;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 15px 0px;
+    transform: translateY(-3px);
 }
 
 

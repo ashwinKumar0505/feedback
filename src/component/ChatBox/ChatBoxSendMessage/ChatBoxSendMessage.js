@@ -12,7 +12,7 @@ import {
 } from "../../../Store/ActionCreators";
 
 const ChatBoxSendMessage = props => {
-  console.log("here to second")
+  console.log("here to second");
   return (
     <div>
       <div className={classes.UpperChatBox}>
@@ -48,11 +48,17 @@ const ChatBoxSendMessage = props => {
         </p>
       </div>
       <div className={classes.Form}>
-        <form  onSubmit={event => {props.storeTheFeedBack(event, props.feedBack); props.changeToFinal();}}>
+        <form
+          onSubmit={event => {
+            props.storeTheFeedBack(event, props.feedBack);
+            props.changeToFinal();
+          }}
+        >
           <input
             type="text"
             placeholder="Name"
             name="name"
+            className={classes.name}
             onChange={props.nameChangeHandler}
             required
           />
@@ -60,6 +66,7 @@ const ChatBoxSendMessage = props => {
             type="text"
             placeholder="Subject"
             name="subject"
+            className={classes.subject}
             onChange={props.subjectChangeHandler}
             required
           />
@@ -67,6 +74,7 @@ const ChatBoxSendMessage = props => {
             type="email"
             placeholder="Email address"
             name="email"
+            className={classes.email  }
             onChange={props.emailChangeHandler}
             required
           />
@@ -80,22 +88,16 @@ const ChatBoxSendMessage = props => {
               href="https://fonts.googleapis.com/icon?family=Material+Icons"
               rel="stylesheet"
             ></link>
-              <i
-                className="material-icons"
-                style={{ fontSize: "30", color: "#cdd5dd" }}
-              >
+             <input type="file" name="photo"  className={classes.fileUpload}/>
+             <i className="material-icons" style={{ fontSize: "30" }}>
                 add_a_photo
               </i>
           </div>
           <br></br>
-          <button
-            className={classes.SendButton}
-          >
-            Send a message
-          </button>
+          <button className={classes.SendButton}>Send a message</button>
         </form>
       </div>
-
+           
     </div>
   );
 };
