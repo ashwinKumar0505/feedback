@@ -1,0 +1,51 @@
+.ChatBox {
+  width: 350px;
+  height: 65%;
+  border-radius: 1%;
+  position: fixed;
+  bottom: 15%;
+  right: 5%;
+  background: rgb(249, 250, 250);
+  box-shadow: rgb(0,0,0,0.1) 0px 100px 100px 0px;
+  transition-timing-function: ease-in;
+  transition: 0.8s;
+}
+
+
+
+.chatComponent::-webkit-scrollbar { width: 0 !important }
+
+.chatComponent{
+  height:90%;
+    overflow-y: auto;
+}
+
+
+
+
+.help {
+  margin:auto;
+  cursor: pointer;
+  margin-top:20px;
+}
+
+
+
+
+
+
+
+
+@media (max-height:615px){
+  .ChatBox{
+    overflow-y: auto;
+  }
+}
+
+
+@media (max-width:400px) {
+  .ChatBox {
+    width: 350px;
+    right: 0px;
+  }
+}

@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://litmus.com/community/templates/topic/32-launch-templates -->
+<html class="wf-proximanova-n4-active wf-proximanovasoft-n6-active wf-proximanova-n7-active wf-proximanovasoft-n4-active wf-gooddognew-n4-active wf-proximanova-n3-active wf-brandongrotesque-n7-active wf-brandongrotesque-n4-active wf-proximanova-n6-active wf-proximanovasoft-n7-active wf-active" style="opacity: 100;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./Templates_files/0cfd141a14"></script><script type="text/javascript" async="" src="./Templates_files/main.2.1.29723485.js"></script><script type="text/javascript" async="" src="./Templates_files/loader.2.1.js"></script><script type="text/javascript" src="./Templates_files/pd-5700bef1879f8b994d7aca78d1e43f28.js"></script><script type="text/javascript" async="" src="./Templates_files/saved_resource"></script><script type="text/javascript" src="./Templates_files/pd.js"></script><script src="./Templates_files/nr-1130.min.js"></script><script type="text/javascript">(function () {
+    var wDocumentReferrer = document.referrer;
+
+    if (window.location.href.indexOf('litmus.com/signup/welcome') != -1) {
+        console.log('Tracking conversion with referrer: ' + wDocumentReferrer);
+        if (wDocumentReferrer == "https://litmus.com/signup/basic-plan/st") {
+            var eventName = 'Buy Now - Basic Monthly';
+            fePush(eventName);
+        }else if (wDocumentReferrer == "https://litmus.com/signup/basic-plan") {
+            var eventName = 'Start your trial - Basic';
+            fePush(eventName);
+        }else if (wDocumentReferrer == "https://litmus.com/signup/plus-plan/st") {
+            var eventName = 'Buy Now - Plus Monthly';
+            fePush(eventName);
+        }else if (wDocumentReferrer == "https://litmus.com/signup/plus-plan") {
+            var eventName = 'Start your trial - Plus';
+            fePush(eventName);
+        }else if (wDocumentReferrer == "https://litmus.com/signup/basic-annual-plan/st") {
+            var eventName = 'Buy Now - Basic Annual';
+            fePush(eventName);
+        }else if (wDocumentReferrer == "https://litmus.com/signup/plus-annual-plan/st") {
+            var eventName = 'Buy Now - Plus Annual';
+            fePush(eventName);
+        }else if (wDocumentReferrer == "https://litmus.com/signup/basic-annual-plan") {
+            var eventName = 'Start your trial - Basic Annual';
+            fePush(eventName);
+        }else if (wDocumentReferrer == "https://litmus.com/signup/plus-annual-plan") {
+            var eventName = 'Start your trial - Plus Annual';
+            fePush(eventName);
+        }else if (wDocumentReferrer == "https://litmus.com/tour") {
+            var eventName = 'Take a tour';
+            fePush(eventName)
+        }
+
+    };
+
+    function fePush(eventName) {
+      window.funnelEnvy = window.funnelEnvy || [];
+        console.log('Pushing event ' + eventName + ' to FunnelEnvy');
+        window.funnelEnvy.push({
+            event: eventName
+        });
+    }
+})();
+
+(function() {
+     var FEHelper = {
+        doWhenElementLoaded: function(element, todoWhenLoaded) {
+            var waitForElement = setInterval(
+                function() {
+                    if (document.querySelectorAll(element).length > 0) {
+                        clearInterval(waitForElement);
+                        todoWhenLoaded();
+                    }
+                }, 50);
+            setTimeout(function(){ clearInterval(waitForElement); }, 8000);
+        }
+    };
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}   
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+} 
+var pathr=window.location.pathname;
+if (pathr=="/pricing" && sessionStorage.getItem('buyVersion') == "true") {
+      function init2(){
+
+          //hide element
+            var hideelement=document.querySelectorAll('.responsive-cards .pricing-card .price .buynow');
+            for(var i=0;i<hideelement.length;i++)
+            hideelement[i].style.display='none';
+        //change content 
+             getElementBySelector('header.container.hero-title > h1').innerHTML="<span class='trial'>Activate </span>Your Litmus Account";
+             getElementBySelector("header.container.hero-title > h2").textContent="Join the over 600,000 marketing professionals that trust Litmus to help them create better email, faster.";
+       //change style 
+             setStyle(getElementBySelector('body.pricing .hero-title h2'),{'max-width' :'57.25rem'});
+        //get /check radio button value 
+       var radios= document.querySelectorAll("input[type='radio']");
+        for(var i = 0, max = radios.length; i < max; i++) {
+            radios[i].onclick = function() {
+                if(getElementBySelector('.switch #year').checked){
+                    yearly();
+                }
+                else
+                {
+                    monthly();
+                }
+            }
+        }
+
+        function monthly() {
+            //set attribute and content changed 
+             setAttr(getElementBySelector('.annual .month .btn'),'href','https://litmus.com/signup/basic-plan/st').textContent='Buy Now';
+           setAttr(getElementBySelector('.popular .month .btn'),'href','https://litmus.com/signup/plus-plan/st').textContent='Buy Now';    
+        }
+        function yearly() {
+            //set attribute and content changed 
+            setAttr(getElementBySelector('.annual .year .btn'),'href','https://litmus.com/signup/basic-annual-plan/st').textContent='Buy Now';
+            setAttr(getElementBySelector('.popular .year .btn'),'href','https://litmus.com/signup/plus-annual-plan/st').textContent='Buy Now';
+           
+        }
+        function getElementBySelector(selector){
+            var element=document.querySelectorAll(selector);
+        return element[0];
+        }
+
+        function setAttr(element,attr,attrval){
+            element.setAttribute(attr, attrval);
+            return element;
+        } 
+        function setStyle(el, styles) {
+            for (var property in styles)
+                el.style[property] = styles[property];
+        }
+       // yearly();
+        monthly();
+      }
+        FEHelper.doWhenElementLoaded('header', init2);
+    
+
+  }
+
+})();</script><script async="" id="db_form_module" src="./Templates_files/forms.min.js"></script><script type="text/javascript" src="./Templates_files/appcues.main.5fde6b16707074b0e033b9a1c2549e119f198d3d.js" async=""></script><script src="./Templates_files/inferredEvents.js" async=""></script><script src="./Templates_files/529867953829810" async=""></script><script async="" src="./Templates_files/fbevents.js"></script><script async="" id="demandbase_js_lib" src="./Templates_files/fc70a7ed.min.js"></script><script type="text/javascript" async="" src="./Templates_files/analytics.js"></script><script type="text/javascript" async="" src="./Templates_files/gtm.js"></script><script type="text/javascript" async="" src="./Templates_files/heap-3221824836.js"></script><script type="text/javascript" async="" src="./Templates_files/cs.js"></script><script type="text/javascript" async="" src="./Templates_files/35301.js"></script>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script async="" src="./Templates_files/analytics.js"></script><script type="text/javascript" async="" src="./Templates_files/analytics.min.js"></script><script type="text/javascript" async="" src="./Templates_files/a591c9a4d4d0b4b1a6df684df1a32d6c7f9856c5.1.js"></script><script type="text/javascript" async="" src="./Templates_files/i.js"></script><script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"0cfd141a14","applicationID":"886818","transactionName":"cV0IR0JbVFtUS0xbXl9fE11ZQEEYRVwOSF1TRgNAH0BXR1ha","queueTime":0,"applicationTime":173,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={xpid:"VQ4EUFVVGwsIUllTDw=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(18),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(19),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var x=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof x&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof x&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(21)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(21)(r);n.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(21)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(21)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(21)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var x=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(){var t=window.NREUM,n=t.info.accountID||null,e=t.info.agentID||null,r=t.info.trustKey||null,i="btoa"in window&&"function"==typeof window.btoa;if(!n||!e||!i)return null;var a={v:[0,1],d:{ty:"Browser",ac:n,ap:e,id:o.generateCatId(),tr:o.generateCatId(),ti:Date.now()}};return r&&n!==r&&(a.d.tk=r),btoa(JSON.stringify(a))}var o=t(16);n.exports={generateTraceHeader:r}},{}],11:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(l[r],this.listener,!1);n.aborted||(e.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==n.status&&(n.status=0):a(this,t),e.cbTime=this.cbTime,d.emit("xhr-done",[t],t),c("xhr",[n,e,this.startTime]))}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return w(r)}function i(t,n){var e=f(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}function a(t,n){t.params.status=n.status;var e=o(n,t.lastSize);if(e&&(t.metrics.rxSize=e),t.sameOrigin){var r=n.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(12),u=t(10).generateTraceHeader,d=t("ee"),l=["load","error","abort","timeout"],p=l.length,h=t("id"),m=t(15),w=t(14),v=window.XMLHttpRequest;s.features.xhr=!0,t(9),d.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,n.loadCaptureCalled=!1,t.addEventListener("load",function(e){a(n,t)},!1),m&&(m>34||m<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),d.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var e=!1;if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(e=!!NREUM.init.distributed_tracing.enabled),e&&this.sameOrigin){var r=u();r&&n.setRequestHeader("newrelic",r)}}),d.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=w(r);i&&(e.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{d.emit("internal-error",[e])}catch(r){}}};for(var a=0;a<p;a++)n.addEventListener(l[a],this.listener,!1)}),d.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),d.on("xhr-load-added",function(t,n){var e=""+h(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),d.on("xhr-load-removed",function(t,n){var e=""+h(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),d.on("addEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&d.emit("xhr-load-added",[t[1],t[2]],n)}),d.on("removeEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&d.emit("xhr-load-removed",[t[1],t[2]],n)}),d.on("fn-start",function(t,n,e){n instanceof v&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on("fn-end",function(t,n){this.xhrCbStart&&d.emit("xhr-cb-time",[s.now()-this.xhrCbStart,this.onload,n],n)})}},{}],12:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],13:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(18),s=t(19),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],14:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],15:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],16:[function(t,n,e){function r(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(n=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(n=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}n.exports={generateUuid:r,generateCatId:o}},{}],17:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],18:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],19:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],20:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],21:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(19),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([x,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function w(t){return d[t]=d[t]||o(e)}function v(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},x={on:p,addEventListener:p,removeEventListener:h,emit:e,get:w,listeners:m,context:n,buffer:v,abort:a,aborted:!1};return x}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(18),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=b.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(18),u=t("ee"),d=t(17),l=window,p=l.document,h="addEventListener",m="attachEvent",w=l.XMLHttpRequest,v=w&&w.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:x,userAgent:d};t(13),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,R=t(20)},{}]},{},["loader",2,11,4,3]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="/9snaPjJIuGRlph+XYjIdX9wl8EY6XQWY9DA5gr0k//7h4VVTc5J5SHoimIZmX/v7bmjp4LvwhlJokzxDsJTcw==">
+  <title>Templates</title>
+
+  <!-- MARKETING-HEADER -->
+  <link rel="icon" type="image/png" href="https://litmus.com/favicon.png?1">
+  <meta name="bitly-verification" content="8b13fd9753dd">
+  <meta name="p:domain_verify" content="78ffffeb8b626137627f3e87064a8cb8">
+  <script type="text/javascript" src="./Templates_files/zqt8qdp.js"></script>
+<style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}.tk-gooddog-new{font-family:"gooddog-new",cursive;}.tk-brandon-grotesque{font-family:"brandon-grotesque",sans-serif;}.tk-proxima-nova-soft{font-family:"proxima-nova-soft",sans-serif;}</style><style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/71f83c/00000000000000003b9b093b/27/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/71f83c/00000000000000003b9b093b/27/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/71f83c/00000000000000003b9b093b/27/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/27776b/00000000000000003b9b0939/27/l?subset_id=2&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/27776b/00000000000000003b9b0939/27/d?subset_id=2&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/27776b/00000000000000003b9b0939/27/a?subset_id=2&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/4838bd/00000000000000003b9b0934/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/4838bd/00000000000000003b9b0934/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/4838bd/00000000000000003b9b0934/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/437c3d/00000000000000003b9b0932/27/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/437c3d/00000000000000003b9b0932/27/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/437c3d/00000000000000003b9b0932/27/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;}@font-face{font-family:gooddog-new;src:url(https://use.typekit.net/af/0de763/00000000000000003b9afa1c/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/0de763/00000000000000003b9afa1c/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/0de763/00000000000000003b9afa1c/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:brandon-grotesque;src:url(https://use.typekit.net/af/1da05b/0000000000000000000132df/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/1da05b/0000000000000000000132df/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/1da05b/0000000000000000000132df/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:brandon-grotesque;src:url(https://use.typekit.net/af/8f4e31/0000000000000000000132e3/27/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/8f4e31/0000000000000000000132e3/27/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/8f4e31/0000000000000000000132e3/27/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:proxima-nova-soft;src:url(https://use.typekit.net/af/357d3c/00000000000000000001743c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/357d3c/00000000000000000001743c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/357d3c/00000000000000000001743c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:proxima-nova-soft;src:url(https://use.typekit.net/af/8d1d7e/00000000000000000001743e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/8d1d7e/00000000000000000001743e/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/8d1d7e/00000000000000000001743e/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}@font-face{font-family:proxima-nova-soft;src:url(https://use.typekit.net/af/279af5/00000000000000000001743f/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/279af5/00000000000000000001743f/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/279af5/00000000000000000001743f/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}</style><script type="text/javascript">
+  try {
+    Typekit.load({
+      active: function () {
+        $(window).trigger("fontsLoaded");
+      }
+    });
+  } catch (e) {
+    /* Do nothing. */
+  }
+</script>
+
+  <script src="./Templates_files/jquery.min.js" type="text/javascript"></script>
+  <script src="./Templates_files/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="./Templates_files/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+  <!--[if lt IE 9]>
+  <script src="https://litmus.com/javascripts/html5shiv.js"></script>
+  <link rel="stylesheet" type="text/css" media="all" href="/assets/community/ie.css"/>
+  <![endif]-->
+
+  <link href="./Templates_files/css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript">
+  var _kmq = _kmq || [];
+  var _kmk = _kmk || 'a591c9a4d4d0b4b1a6df684df1a32d6c7f9856c5';
+  function _kms(u){
+    setTimeout(function(){
+      var d = document, f = d.getElementsByTagName('script')[0],
+      s = d.createElement('script');
+      s.type = 'text/javascript'; s.async = true; s.src = u;
+      f.parentNode.insertBefore(s, f);
+    }, 1);
+  }
+  _kms('//i.kissmetrics.com/i.js');
+  _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+  </script>
+
+  <meta name="description" content="Litmus tests and tracks your email campaigns, so you can always put your best design forward.">
+  <meta name="keywords" content="email testing, email preview, HTML email, email CSS, outlook preview, iphone preview, hotmail preview, gmail preview, lotus notes preview">
+
+  <link rel="stylesheet" media="screen" href="./Templates_files/editor-39cdb6a3767eb33e9a7cf2d777489d09.css">
+<link rel="stylesheet" media="screen" href="./Templates_files/application-4efaa5055a38df1158baa955341bd405.css">
+  <script src="./Templates_files/application-109747f902e1360da0604e2599dcad87.js"></script><style type="text/css"></style>
+<script src="./Templates_files/popover-v1.js"></script>
+  <script src="./Templates_files/marketing-0fee57e7e0ee409af9588b4d54847386.js"></script>
+
+  <script type="text/javascript">
+  function OptanonWrapper() {
+    Litmus.SegmentioLoader.load();
+    window.dataLayer.push( { event: 'OneTrustGroupsUpdated' } );
+  }
+
+  new Litmus.OneTrustHandler({
+    groupIds: ["1", "2", "3", "4"]
+  }).start();
+
+</script>
+
+<style>
+  .optanon-alert-box-wrapper { left:0; }
+</style>
+
+  <!-- OneTrust Cookies Consent Notice (Production CDN, litmus.com, en-GB) start -->
+  <script src="./Templates_files/a85bd49d-91ac-4dd1-b103-ef1e2b5489dd.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript" src="./Templates_files/jquery.min(1).js"></script><link type="text/css" href="./Templates_files/optanon.css" rel="stylesheet"><style>#optanon ul#optanon-menu li { background-color: #F5F5F5 !important }#optanon ul#optanon-menu li.menu-item-selected { background-color: #FFFFFF !important }#optanon #optanon-popup-wrapper .optanon-white-button-middle { background-color: #62BE7F !important }.optanon-alert-box-wrapper .optanon-alert-box-button-middle { background-color: #62BE7F !important; border-color: #62BE7F !important; }#optanon #optanon-popup-wrapper .optanon-white-button-middle a { color: #ffffff !important }.optanon-alert-box-wrapper .optanon-alert-box-button-middle a { color: #ffffff !important }#optanon #optanon-popup-bottom { background-color: #FFFFFF !important }#optanon.modern #optanon-popup-top, #optanon.modern #optanon-popup-body-left-shading { background-color: #FFFFFF !important }.optanon-alert-box-wrapper { background-color:#616A73 !important }.optanon-alert-box-wrapper .optanon-alert-box-bg p { color:#FFFFFF !important }#optanon #optanon-popup-top{
+border-radius: 4px 4px 0 0;
+border-bottom: 1px solid #D5DADF;
+}
+#optanon #optanon-popup-body-left-shading{
+border-radius: 4px 0 0 0;
+}
+#optanon #optanon-popup-wrapper .optanon-white-button-middle, .optanon-alert-box-wrapper .optanon-alert-box-button-middle{
+border-radius: 4px;
+background-color: #62BE7F;
+border: 1px solid #54A66E;
+}
+#optanon #optanon-popup-wrapper .optanon-white-button-middle:hover, .optanon-alert-box-wrapper .optanon-alert-box-button-middle:hover{
+background-color: #54B873;
+border: 1px solid #4D9865;
+}
+.optanon-alert-box-wrapper .optanon-alert-box-button-middle a::before{
+content: "" !important;
+}
+.optanon-alert-box-body a{
+color: #FFF;
+text-decoration: underline;
+}
+.optanon-alert-box-body a:hover{
+color: #FFF;
+text-decoration: none;
+}
+.optanon-alert-box-wrapper .optanon-alert-box-corner-close{
+width: 24px;
+height: 24px;
+}
+#optanon #optanon-popup-top .optanon-close::after{
+content: "×";
+font-size: 32px;
+position: relative;
+top: -2px;
+left: 8px;
+}
+#optanon #optanon-popup-top .optanon-close{
+position: relative;
+top: 12px;
+right: 12px;
+background: none !important;
+color: #63707A !important;
+text-decoration: none;
+width: 32px;
+height: 32px;
+}
+
+.optanon-alert-box-wrapper .optanon-alert-box-corner-close a{
+position: relative;
+top: 0;
+left: 0;
+background: none;
+color: #FFF;
+text-decoration: none;
+width: 24px;
+height: 24px;
+}
+
+.optanon-alert-box-wrapper .optanon-alert-box-corner-close a::after{
+content: "×";
+font-size: 24px;
+position: relative;
+bottom: 2px;
+right: -4px;
+}
+#optanon #optanon-popup-bottom{
+border-top: 1px solid #D5DADF;
+border-radius: 0 0 4px 4px;
+}
+#optanon #optanon-popup-body h2, #optanon #optanon-popup-body h3{
+color: #3A3E41;
+}
+#optanon-main-info-text{
+color: #495055;
+}
+#optanon #optanon-menu li{
+border-bottom: 1px solid #D5DADF;
+}
+#optanon #optanon-menu li:hover{
+cursor: pointer;
+}
+
+#optanon #optanon-menu .menu-item-about, #optanon #optanon-menu .menu-item-necessary, #optanon #optanon-menu .menu-item-performance, #optanon #optanon-menu .menu-item-moreinfo, #optanon #optanon-menu .menu-item-functional, #optanon #optanon-menu .menu-item-advertising{
+background: none;
+}
+
+
+.optanon-alert-box-wrapper .optanon-button-more .optanon-alert-box-button-middle a::before{
+content: "" !important;
+}
+.optanon-alert-box-wrapper .optanon-button-more .optanon-alert-box-button-middle a {
+border: none;
+text-decoration: underline;
+}
+.optanon-alert-box-wrapper .optanon-button-more .optanon-alert-box-button-middle a:hover {
+text-decoration: none;
+}
+
+.optanon-alert-box-corner-close{
+background: url('data:image/gif;base64,R0lGODlhRABEAIABAP///////yH5BAEAAAEALAAAAABEAEQAAAKVjI+py+0Po5y02oszBPxyoGFfR41gWJlnpKJWu5muJzvw/NbLjefjruvRfgiecPg5GI/IzpLZfEKjyelMtbKisFoXltQVfcHhkkxaZtzQ6WIwwG4/42E03Rq/M+/6Xr9/RTTxVkc2aNiWqLjI2Oj4CBkpOUlZaXmJmam5ydnp+QkaKjpKWmp6ipqqusra6voKGyvbUwAAOw==') !important;
+}
+.optanon-alert-box-wrapper{
+background-color: rgba(97,106,115, .8) !important;
+}</style>
+  <!-- OneTrust Cookies Consent Notice (Production CDN, litmus.com, en-GB) end -->
+          
+            <script>
+//<![CDATA[
+        piAId = '32032';
+        piCId = '25124';
+        piEmail = '';
+
+        (function() {
+          function async_load(){
+            var s = document.createElement('script'); s.type = 'text/javascript';
+            s.src = 'https://js.litmuscdn.com/assets/pd-5700bef1879f8b994d7aca78d1e43f28.js';
+            var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+          }
+          if(window.attachEvent) { window.attachEvent('onload', async_load); }
+          else { window.addEventListener('load', async_load, false); }
+        })();
+
+//]]>
+</script>
+          
+<script>
+  window.Litmus = window.Litmus || {};
+  window.Litmus.Analytics = window.Litmus.Analytics || {};
+  window.Litmus.Data = window.Litmus.Data || {};
+  window.Litmus.Data.additionalExternalAnalyticProperties = {};
+  window.Litmus.Data.additionalNamespacedExternalAnalyticProperties = {};
+  window.Litmus.Data.additionalExternalAnalyticPropertiesFlat = {};
+
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+  }}();
+
+  Litmus.SegmentioLoader.configure({
+    data: {"groups":{"1":{"name":"necessary","load":true,"integrations":["Google Tag Manager","Redshift","Castle","Segment.io"]},"2":{"name":"performance","integrations":["Intercom","Google Analytics","Heap","KISSmetrics","Visual Website Optimizer","Clearbit Enrichment","Clearbit Reveal","Crazy Egg","FullStory","Mixpanel","Optimizely","FunnelEnvy"]},"3":{"name":"functional","integrations":["Appcues","Olark","Help Scout"]},"4":{"name":"targeting","integrations":["Pardot","AdRoll"]}}},
+    code: "e3b1q380gi",
+    debug: false
+  });
+
+
+  Litmus.SegmentioLoader.onReady(function() {
+    // set custom properties in heap which then are added to events that were created in heap and our codebase knows nothing about
+    window.heap && window.heap.addEventProperties(
+      window.Litmus.Data.additionalNamespacedExternalAnalyticProperties
+    )
+
+    var context = {};
+    if (window.campaignData) {
+      context["campaign"] = campaignData;
+    }
+    window.analytics.page(null, Litmus.Data.additionalExternalAnalyticProperties, { context: context });
+  });
+</script>
+
+  <script type="text/javascript" class="optanon-category-1">
+    Litmus.SegmentioLoader.groupAuthHandler("1");
+  </script>
+  <script type="text/javascript" class="optanon-category-2">
+    Litmus.SegmentioLoader.groupAuthHandler("2");
+  </script>
+  <script type="text/javascript" class="optanon-category-3">
+    Litmus.SegmentioLoader.groupAuthHandler("3");
+  </script>
+  <script type="text/javascript" class="optanon-category-4">
+    Litmus.SegmentioLoader.groupAuthHandler("4");
+  </script>
+<script src="./Templates_files/backstage-client.js"></script>
+
+<script>
+//<![CDATA[
+
+  Litmus.SegmentioLoader.onAuth(function() {
+    if (Litmus.SegmentioLoader.isActive("FunnelEnvy")) {
+      window.funnelEnvy = new FunnelEnvy({customerId: "5bfeaa31f4c71ff1339f9476", apiUrl: "//backstage.funnelenvy.com"});
+    }
+  })
+
+//]]>
+</script>
+  <script>
+//<![CDATA[
+      var _vwo_code=(function(){
+      var account_id=348067,
+      settings_tolerance=2000,
+      library_tolerance=2500,
+      use_existing_jquery=false,
+      /* DO NOT EDIT BELOW THIS LINE */
+      f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+
+//]]>
+</script><script src="./Templates_files/j.php" type="text/javascript"></script>
+
+<script src="./Templates_files/va-df8ac95c160235c9ed71678bd03eae1b.js" crossorigin="anonymous" type="text/javascript"></script><script src="./Templates_files/track-df8ac95c160235c9ed71678bd03eae1b.js" crossorigin="anonymous" type="text/javascript"></script><script src="./Templates_files/opa-945ddc0ae6300f8759118a2567578a15.js" crossorigin="anonymous" type="text/javascript"></script><iframe src="./Templates_files/saved_resource.html"></iframe><iframe src="./Templates_files/saved_resource(8).html"></iframe><iframe src="./Templates_files/saved_resource(9).html"></iframe><link rel="stylesheet" type="text/css" href="./Templates_files/container.5fde6b16707074b0e033b9a1c2549e119f198d3d.css"><iframe src="./Templates_files/saved_resource(10).html"></iframe><link rel="stylesheet" type="text/css" href="./Templates_files/stylesheet.v2.css"><script type="text/javascript" src="./Templates_files/analytics"></script><style data-emotion=""></style><style id="beacon-stylesheet" type="text/css">#beacon-container{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5}#beacon-container,#beacon-container *{-webkit-box-sizing:border-box;box-sizing:border-box}#beacon-container *{-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0)}#BeaconContainer-root.is-mobile{--BlueConfigGlobalFontSize:14px}@media (min-width:330px){#BeaconContainer-root.is-mobile{--BlueConfigGlobalFontSize:15px}}@media (min-width:410px){#BeaconContainer-root.is-mobile{--BlueConfigGlobalFontSize:16px}}#BeaconContainer-root.is-mobile input,#BeaconContainer-root.is-mobile select,#BeaconContainer-root.is-mobile textarea{font-size:16px!important}#beacon-container a{color:_color(link,base);text-decoration:none}#beacon-container a:hover{color:_color(link,hover)}#beacon-container a.disabled{color:_color(text,muted);cursor:not-allowed}#beacon-container a.disabled:hover{color:_color(text,muted);text-decoration:none}#beacon-container-body{margin:0;overflow:hidden}</style><script type="text/javascript" src="./Templates_files/analytics(1)"></script><script type="text/javascript" src="./Templates_files/analytics(2)"></script><script type="text/javascript" src="./Templates_files/analytics(3)"></script></head>
+<body class="forums templates community marketing topic-launch-templates logged-out">
+
+  <div class="primary-nav">
+    <header class="cd-header">
+      <div class="container">
+        <div class="cd-logo logo-color"><a href="https://litmus.com/"><img src="./Templates_files/litmus-logo-color-3a7f72874dbe1ce45093cd3ee1aa4c4f.svg" alt="Litmus logo color"></a></div>
+        <div class="cd-logo logo-white"><a href="https://litmus.com/"><img src="./Templates_files/litmus-logo-white-aca584a34e4af09b27c2155eb87fbf4c.svg" alt="Litmus logo white"></a></div>
+
+        <nav>
+          <ul class="cd-secondary-nav">
+            <li>
+              <div class="dropdown dropdown-link">
+                <a class="dropdown-toggle" id="featuresDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Features
+                </a>
+                <div class="dropdown-menu" aria-labelledby="featuresDropdown">
+                  <a class="dropdown-item" href="https://litmus.com/overview">All Features</a>
+                  <a class="dropdown-item" href="https://litmus.com/email-testing">Email Previews</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="https://litmus.com/email-builder">Builder</a>
+                  <a class="dropdown-item" href="https://litmus.com/email-checklist">Checklist</a>
+                  <a class="dropdown-item" href="https://litmus.com/spam-filter-tests">Spam Testing</a>
+                  <a class="dropdown-item" href="https://litmus.com/email-analytics">Email Analytics</a>
+                  <a class="dropdown-item" href="https://litmus.com/extension">Litmus Extension</a>
+                </div>
+              </div>
+            </li>
+            <li><a href="https://litmus.com/pricing">Pricing</a></li>
+            <li>
+              <div class="dropdown dropdown-link">
+                <a class="dropdown-toggle" id="resourcesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Resources
+                </a>
+                <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                  <a class="dropdown-item" href="https://litmus.com/resources">Resources</a>
+                  <a class="dropdown-item" href="https://litmus.com/conference">Litmus Conference</a>
+                  <a class="dropdown-item" href="https://litmus.com/convince-your-team">Convince Your Team</a>
+                  <a class="dropdown-item" href="https://litmus.com/community/gmail-promotions-builder">Gmail Promotions Builder</a>
+                </div>
+              </div>
+            </li>
+            <li><a href="https://litmus.com/enterprise">Enterprise</a></li>
+            <li>
+              <div class="dropdown dropdown-link">
+                <a class="dropdown-toggle" id="resourcesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Community
+                </a>
+                <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                  <a class="dropdown-item" href="https://litmus.com/community/discussions">Discussions</a>
+                  <a class="dropdown-item" href="https://litmus.com/community/snippets">Snippets</a>
+                  <a class="dropdown-item" href="https://litmus.com/community/templates">Templates</a>
+                  <a class="dropdown-item" href="https://litmus.com/community/jobs">Jobs</a>
+                </div>
+              </div>
+            </li>
+            <li><a href="https://litmus.com/blog">Blog</a></li>
+          </ul>
+          <ul class="cd-secondary-nav is-right">
+              <li class="sign-in"><a href="https://litmus.com/login" class="toggle-sign-in-modal">Sign In</a></li>
+          </ul>
+        </nav> <!-- cd-nav -->
+
+        <a class="cd-primary-nav-trigger">
+          <span class="cd-menu-icon"></span>
+        </a> <!-- cd-primary-nav-trigger -->
+      </div>
+    </header>
+
+    <nav>
+      <ul class="cd-primary-nav">
+        <li class="cd-label">Litmus</li>
+
+        <li><a href="https://litmus.com/overview">Features</a></li>
+        <li><a href="https://litmus.com/pricing">Pricing</a></li>
+        <li><a href="https://litmus.com/resources">Resources</a></li>
+        <li><a href="https://litmus.com/enterprise">Enterprise</a></li>
+        <li><a href="https://litmus.com/blog">Blog</a></li>
+
+        <li class="cd-label">Community</li>
+
+        <li>
+          <a class="" href="https://litmus.com/community/discussions">Discussions</a>
+        </li>
+        <li>
+          <a class="" href="https://litmus.com/community/snippets">Snippets</a>
+        </li>
+        <li>
+           <a class="active" href="https://litmus.com/community/templates">Templates</a>
+        </li>
+        <li>
+          <a class="" href="https://litmus.com/community/jobs/">Jobs</a>
+        </li>
+
+        <li class="cd-label">My Account</li>
+
+          <li class="sign-in"><a href="https://litmus.com/login" class="toggle-sign-in-modal">Sign In</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="subnav">
+    <div class="container">
+      <ul class="links">
+        <li>
+          <a class="" href="https://litmus.com/community/discussions">Discussions</a>
+        </li>
+        <li>
+          <a class="" href="https://litmus.com/community/snippets">Snippets</a>
+        </li>
+        <li>
+           <a class="active" href="https://litmus.com/community/templates">Templates</a>
+        </li>
+        <li>
+          <a class="" href="https://litmus.com/community/jobs/">Jobs</a>
+        </li>
+      </ul>
+
+        <ul class="actions">
+            <li>
+      <p>Want to contribute? <a href="https://litmuscommunity.typeform.com/to/La9jNZ">Get in touch</a></p>
+  </li>
+
+        </ul>
+    </div><!-- /container -->
+  </div><!-- /primary-nav -->
+
+  <div class="content-container">
+
+    <div class="container">
+          <div class="banner upsell-banner" style="background: #ea7165;">
+    <div class="caption">
+      <p><strong>The State of Email Engagement:</strong> We analyzed billions of email opens to find out when, where, and how people engage with email.</p>
+    </div>
+
+    <div class="action">
+      <a href="https://pages.litmus.com/l/31032/2019-06-04/hfxrgm" class="btn btn-outline">Get the report<span class="icon icon-arrow-right"></span></a>
+    </div>
+  </div>
+
+  <!--
+  <div class="alert alert-dismissable alert-signed-out" id="login-or-signup-alert">
+    <a class="closer" data-dismiss="alert" aria-hidden="true" href="#"><span class="icon icon-cross"></span></a>
+    <div class="helper">
+      <h2>The Litmus Community is the place for <strong>email designers</strong> and <strong>marketers</strong> to learn, grow, and educate each other about everything email.</h2>
+      <a href="#" class="btn btn-info btn-lg toggle-sign-up-modal">Join for Free</a>
+    </div>
+  </div>
+  -->
+
+
+    </div>
+
+    <section class="community-body">
+        <div class="container">
+          
+    <div class="filters">
+      <div class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            Launch Templates (7)
+            <span class="icon icon-chevron-down"></span>
+          </a>
+        <ul class="dropdown-menu l_tinynav1" role="menu">
+            <li class="dropdown-item name-account-management-templates ">
+              <a href="https://litmus.com/community/templates/topic/34-account-management-templates">
+                Account Management Templates
+                <span class="count">
+                  (6)
+                </span><!-- .count -->
+</a>            </li><!-- .topic -->
+            <li class="dropdown-item name-e-commerce-templates ">
+              <a href="https://litmus.com/community/templates/topic/33-e-commerce-templates">
+                E-Commerce Templates
+                <span class="count">
+                  (10)
+                </span><!-- .count -->
+</a>            </li><!-- .topic -->
+            <li class="dropdown-item name-marketing-templates ">
+              <a href="https://litmus.com/community/templates/topic/35-marketing-templates">
+                Marketing Templates
+                <span class="count">
+                  (8)
+                </span><!-- .count -->
+</a>            </li><!-- .topic -->
+        </ul><select id="tinynav1" class="tinynav custom-select tinynav1"><option value="/community/templates/topic/34-account-management-templates">
+                Account Management Templates
+                
+                  (6)
+                
+</option><option value="/community/templates/topic/33-e-commerce-templates">
+                E-Commerce Templates
+                
+                  (10)
+                
+</option><option value="/community/templates/topic/35-marketing-templates" selected="selected">
+                Marketing Templates
+                
+                  (8)
+                
+</option></select><!-- /dropdown-menu -->
+      </div><!-- /dropdown -->
+    </div><!-- /filters -->
+
+
+
+        </div>
+
+      <div class="container">
+        
+  <div class="community-wrapper snippets-gallery">
+    
+
+
+<section class="template-results">
+
+    <div class="grid">
+      <div class="row">
+          <div class="col-lg-3">
+            <div class="card thumb ">
+  <a href="https://litmus.com/community/templates/26-vision-user-welcome">
+      <div class="image">
+        <img alt="Vision: User Welcome" src="./Templates_files/saved_resource(1)">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="https://litmus.com/community/templates/26-vision-user-welcome">Vision: User Welcome</a>
+  </div>
+</div>
+
+          </div>
+          <div class="col-lg-3">
+            <div class="card thumb ">
+  <a href="https://litmus.com/community/templates/22-vision-coming-soon">
+      <div class="image">
+        <img alt="Vision: Coming Soon" src="./Templates_files/saved_resource(2)">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="https://litmus.com/community/templates/22-vision-coming-soon">Vision: Coming Soon</a>
+  </div>
+</div>
+
+          </div>
+          <div class="col-lg-3">
+            <div class="card thumb ">
+  <a href="https://litmus.com/community/templates/25-vision-stationery">
+      <div class="image">
+        <img alt="Vision: Stationery" src="./Templates_files/saved_resource(3)">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="https://litmus.com/community/templates/25-vision-stationery">Vision: Stationery</a>
+  </div>
+</div>
+
+          </div>
+          <div class="col-lg-3">
+            <div class="card thumb ">
+  <a href="https://litmus.com/community/templates/31-accessible-product-announcement-email">
+      <div class="image">
+        <img alt="Accessible Product Announcement Email" src="./Templates_files/saved_resource(4)">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="https://litmus.com/community/templates/31-accessible-product-announcement-email">Accessible Product Announcement Email</a>
+        <div class="attr">
+          <a href="https://litmus.com/community/templates/31-accessible-product-announcement-email">
+              <img alt="Attribution Logo" src="./Templates_files/f9e5d7b965b0b6d2f0f369d5fd7241cf1e32bf80.png">
+</a>        </div>
+  </div>
+</div>
+
+          </div>
+          <div class="col-lg-3">
+            <div class="card thumb ">
+  <a href="https://litmus.com/community/templates/23-vision-event">
+      <div class="image">
+        <img alt="Vision: Event" src="./Templates_files/saved_resource(5)">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="https://litmus.com/community/templates/23-vision-event">Vision: Event</a>
+  </div>
+</div>
+
+          </div>
+          <div class="col-lg-3">
+            <div class="card thumb ">
+  <a href="https://litmus.com/community/templates/21-vision-announcement">
+      <div class="image">
+        <img alt="Vision: Announcement" src="./Templates_files/saved_resource(6)">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="https://litmus.com/community/templates/21-vision-announcement">Vision: Announcement</a>
+  </div>
+</div>
+
+          </div>
+          <div class="col-lg-3">
+            <div class="card thumb ">
+  <a href="https://litmus.com/community/templates/24-vision-update">
+      <div class="image">
+        <img alt="Vision: Update" src="./Templates_files/saved_resource(7)">
+        <div class="caption animated fadeIn"></div>
+      </div>
+</a>
+  <div class="details">
+    <a href="https://litmus.com/community/templates/24-vision-update">Vision: Update</a>
+  </div>
+</div>
+
+          </div>
+      </div>
+    </div><!-- /grid -->
+
+</section><!-- /template-results -->
+
+
+  </div>
+
+
+
+      </div> <!-- container -->
+    </section> <!-- learning -->
+
+  </div> <!-- main -->
+
+  <!-- Marketing Footer -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="row">
+      <div class="logo col-lg-2">
+        <a href="https://litmus.com/">
+          <img alt="Litmus Logo" class="logo" src="./Templates_files/litmus-logo-color-3a7f72874dbe1ce45093cd3ee1aa4c4f.svg">
+        </a>
+      </div>
+
+      <div class="links col-lg-6">
+
+        <div class="row col-12 col-md-12">
+          <ul class="footer-links  col-6 col-md-3">
+            <h5>Company</h5>
+            <li><a href="https://litmus.com/meet-the-team">Team</a></li>
+            <li><a href="https://litmus.com/customers">Customers</a></li>
+            <li><a href="https://litmus.com/careers">Careers</a></li>
+            <li><a href="https://litmus.com/contact">Contact</a></li>
+            <li><a href="https://litmus.com/brand">Brand</a></li>
+          </ul>
+
+          <ul class="footer-links col-6 col-md-3">
+            <h5>Product</h5>
+            <li><a href="https://litmus.com/overview">Features</a></li>
+            <li><a href="https://litmus.com/pricing">Pricing</a></li>
+            <li><a href="https://litmus.com/enterprise">Enterprise</a></li>
+            <li><a href="https://litmus.com/extension">Extension</a></li>
+          </ul>
+
+          <ul class="footer-links col-6 col-md-3">
+            <h5>Tools</h5>
+            <li><a href="https://litmus.com/events">Events</a></li>
+            <li><a href="https://litmus.com/labs">Labs</a></li>
+            <li><a href="https://litmus.com/scope/">Scope</a></li>
+            <li><a href="https://litmus.com/resources">Resources</a></li>
+          </ul>
+
+          <ul class="footer-links col-6 col-md-3">
+            <h5>Help</h5>
+            <li><a href="https://litmus.com/help/">Knowledgebase</a></li>
+            <li><a href="https://status.litmus.com/">Status</a></li>
+            <li><a href="https://litmus.com/community">Community</a></li>
+            <li><a href="https://litmus.com/trust">Trust</a></li>
+          </ul>
+        </div>
+
+
+
+      </div>
+
+      <div class="subscribe col-lg-4">
+        <h5>Subscribe to our <a href="https://litmus.com/subscribe">emails</a></h5>
+
+        <form class="form-inline subscribe" method="post" id="sub-form" action="https://go.pardot.com/l/31032/2014-01-06/6x3w">
+          <div class="form-group">
+            <input type="text" class="form-control email" name="email" id="ohyku-ohyku" onfocus="if(this.value == &#39;Your email address&#39;) { this.value = &#39;&#39;; }" onblur="if (this.value==&#39;&#39;) this.value = &#39;Your email address&#39;" value="Your email address" required="">
+
+            <input type="hidden" name="subscribe_form_used" value="litmuswww_footer">
+            <input type="submit" value="→" class=" submit">
+          </div>
+        </form>
+
+      </div><!-- .subscribe -->
+
+    </div><!-- .row -->
+
+    <hr>
+
+    <div class="row">
+      <div class="copyright col-12 col-md-9">
+        Copyright © Litmus Software, Inc. 2005-2019. 675 Massachusetts Ave., 11th Floor, Cambridge, MA 02139. <a href="https://litmus.com/terms">View our Terms of Service</a> or <a href="https://litmus.com/privacy">Privacy Policy</a>. Send us a note to <a href="mailto:hello@litmus.com">hello@litmus.com</a> or give us a call at +1 (866) 787-7030
+      </div>
+      <ul class="social col-12 col-md-3">
+        <li><a class="litmuswww-facebook-with-circle" href="https://www.facebook.com/litmusapp" target="_blank"></a></li>
+        <li><a class="litmuswww-twitter-with-circle" href="https://twitter.com/litmusapp" target="_blank"></a></li>
+        <li><a class="litmuswww-dribbble-with-circle" href="http://dribbble.com/litmus" target="_blank"></a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+<!-- .marketing-footer -->
+
+
+  <script>
+    $( ".closer" ).click(function() {
+      $( ".alert" ).hide( "fast");
+    });
+  </script>
+
+    <script type="text/javascript" charset="utf-8">
+    window.currentIdentityId = '';
+    window.moderator = false;
+  </script>
+
+
+  <div class="modal hide fade promo-checker-account" id="sign-in-modal">
+  <form class="form-horizontal community-sign-in-form" action="https://litmus.com/sessions" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓">
+    <div class="modal-header" id="sign-in-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>Sign in to Community</h3>
+    </div>
+
+    <div class="modal-body" id="sign-in-body">
+      <p class="community-modal-errors"></p>
+
+      <p>Are you new to Litmus Community?</p>
+      <a class="btn btn-primary btn-block toggle-modal-form sign-up" href="https://litmus.com/signup/community-plan">Create a Free Litmus Account</a>
+
+      <hr>
+
+      <p class="desc">Use your existing Litmus login to connect with the world’s most amazing email designers.</p>
+      <input type="hidden" name="return_to" id="return_to" value="https://litmus.com/community/templates/topic/32-launch-templates" class="return-to">
+      <div class="form-group">
+        <input type="email" name="email" id="email" placeholder="Email Address" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+      </div>
+
+      <input type="submit" name="commit" value="Sign In" class="btn btn-outline btn-block">
+
+      <small class="note">
+        Having trouble signing in? Try
+        <a class="toggle-modal-form forgot-password" href="https://litmus.com/password/forgot">Forgot password</a>
+      </small>
+    </div>
+</form>
+  <div class="modal-header hide" id="sign-up-header">
+    <h3>Join the Litmus Community</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <form id="sign-up-modal-form" class="form-horizontal hide" action="https://litmus.com/signup/community-plan" accept-charset="UTF-8" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="/9snaPjJIuGRlph+XYjIdX9wl8EY6XQWY9DA5gr0k//7h4VVTc5J5SHoimIZmX/v7bmjp4LvwhlJokzxDsJTcw==">
+
+  <div id="sign-up-form">
+    <div class="modal-header" id="sign-in-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>Sign up to Community</h3>
+    </div>
+
+    <div class="modal-body" id="sign-up-body">
+      <input type="hidden" name="agree_to_terms" id="agree_to_terms" value="1">
+      <input type="hidden" name="return_to" id="return_to" value="https://litmus.com/community/templates/topic/32-launch-templates" class="return-to">
+      <input type="hidden" name="referral_code[code]" id="referral_code_code">
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="signup_user_first_name">First name</label>
+            <input type="text" name="signup[user][first_name]" id="signup_user_first_name" placeholder="First Name" class="required form-control">
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="signup_user_last_name">Last name</label>
+            <input type="text" name="signup[user][last_name]" id="signup_user_last_name" placeholder="Last Name" class="required form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="signup_user_email">Email</label>
+        <input type="email" name="signup[user][email]" id="signup_user_email" placeholder="Email Address" class="required form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="signup_user_password">Password</label>
+        <input type="password" name="signup[user][password]" id="signup_user_password" placeholder="Password" class="required form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="signup_user_password_confirmation">Confirm password</label>
+        <input type="password" name="signup[user][password_confirmation]" id="signup_user_password_confirmation" placeholder="Retype Password" class="required form-control">
+      </div>
+
+
+      <input type="submit" name="commit" value="Sign Up" class="btn btn-primary btn-block sign-up-button">
+
+      <small class="note">
+      Already have a Litmus login?
+      <a class="toggle-modal-form sign-in" href="https://litmus.com/community/templates/topic/32-launch-templates#">Sign in</a>
+      </small>
+
+    </div>
+  </div>
+
+  <div id="sign-up-trial-box" class="hide">
+  <div class="modal-header" id="sign-in-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Get more out of your Litmus account</h3>
+  </div>
+
+  <div class="modal-body modal-trial-sign-up" id="sign-up-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <p>
+          Your free Community account includes access to the Litmus Community, as well as limited access to Litmus Builder. Check out the entire Litmus Email Creative Platform when you sign up for a free 7-day trial.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="feature-card">
+          <ul>
+            <li>
+              <a href="https://litmus.com/community/templates/topic/32-launch-templates#">Email Previews</a>
+              <div class="tip">
+                <p>Get 2,000 screenshots/month in popular email clients, including key international webmail clients, to ensure your emails look great everywhere.</p>
+              </div>
+            </li>
+            <li>
+              <a href="https://litmus.com/community/templates/topic/32-launch-templates#">Builder</a>
+              <div class="tip">
+                <p>Quickly identify issues pre-send that could impact your deliverability—and get actionable advice for how to fix them.</p>
+              </div>
+            </li>
+            <li>
+              <a href="https://litmus.com/community/templates/topic/32-launch-templates#">Checklist</a>
+              <div class="tip">
+                <p>Get screenshots in popular email clients to ensure your email looks great everywhere.</p>
+              </div>
+            </li>
+            <li>
+              <a href="https://litmus.com/community/templates/topic/32-launch-templates#">Code Editor Integrations</a>
+              <div class="tip">
+                <p>Preview and troubleshoot your emails right where you build with seamless integrations between Litmus and any local code editor, like Dreamweaver or Sublime.</p>
+              </div>
+            </li>
+            <li>
+              <a href="https://litmus.com/community/templates/topic/32-launch-templates#">ESP Integrations</a>
+              <div class="tip">
+                <p>Save time producing and troubleshooting your campaigns with seamless integrations between Litmus and your email service provider (ESP).</p>
+              </div>
+            </li>
+            <li>
+              <a href="https://litmus.com/community/templates/topic/32-launch-templates#">Spam Testing</a>
+              <div class="tip">
+                <p>Quickly identify issues pre-send that could impact your deliverability—and get actionable advice for how to fix them.</p>
+              </div>
+            </li>
+            <li>
+              <a href="https://litmus.com/community/templates/topic/32-launch-templates#">Email Analytics</a>
+              <div class="tip">
+                <p>Optimize your campaigns with subscriber-level insights to improve segmentation and targeting strategies.</p>
+              </div>
+            </li>
+            <li>
+              <a href="https://litmus.com/community/templates/topic/32-launch-templates#">Private Litmus Teams</a>
+              <div class="tip">
+                <p>Get full team visibility. Manage Litmus access and monitor usage across private teams.</p>
+              </div>
+            </li>
+          </ul>
+
+          <input type="submit" name="commit" value="Try Litmus free for 7 days" class="btn btn-primary btn-block trial-sign-up-button">
+
+        </div>
+      </div>
+    </div>
+
+    <small class="note">
+      <a class="no-thanks-link" href="https://litmus.com/community/templates/topic/32-launch-templates#">No thanks, just sign me up without a trial</a>
+    </small>
+
+  </div>
+</div><!-- End #sign-up-trial-modal-form -->
+
+  <input type="hidden" name="dbase[sid]" id="dbase_sid">
+<input type="hidden" name="dbase[company]" id="dbase_company_name">
+<input type="hidden" name="dbase[industry]" id="dbase_industry">
+<input type="hidden" name="dbase[city]" id="dbase_city">
+<input type="hidden" name="dbase[state]" id="dbase_state">
+<input type="hidden" name="dbase[country]" id="dbase_country">
+<input type="hidden" name="dbase[employees]" id="dbase_employees">
+<input type="hidden" name="dbase[website]" id="dbase_website">
+<input type="hidden" name="dbase[phone]" id="dbase_phone">
+<input type="hidden" name="dbase[country_name]" id="dbase_country_name">
+
+</form>
+  <form id="forgot-password-modal-form" class="form-horizontal hide" action="https://litmus.com/password/forgot" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="/9snaPjJIuGRlph+XYjIdX9wl8EY6XQWY9DA5gr0k//7h4VVTc5J5SHoimIZmX/v7bmjp4LvwhlJokzxDsJTcw==">
+
+  <div class="modal-header" id="sign-in-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Forgot password</h3>
+  </div>
+
+  <div class="modal-body" id="forgot-password-body">
+    <p class="community-modal-notifications"></p>
+
+    <div class="form-group">
+      <p class="desc">Enter your email address to reset your password</p>
+      <input type="email" name="email" id="email" placeholder="Enter your email" tabindex="1" required="required" class="form-control">
+    </div>
+
+    <input type="submit" name="commit" value="Reset my password" class="btn btn-primary btn-block">
+
+    <small class="note">
+      Already have a Litmus login?
+      <a class="toggle-modal-form sign-in" href="https://litmus.com/community/templates/topic/32-launch-templates#">Sign in</a>
+    </small>
+  </div>
+</form>
+</div>
+
+
+    <!-- google analytics -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2373888-1', 'auto', {
+    cookieDomain: 			'.litmus.com',
+    legacyCookieDomain: '.litmus.com'
+  });
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+<script type="text/javascript" id="">piAId="32032";piCId="6958";(function(){function a(){var b=document.createElement("script");b.type="text/javascript";b.src=("https:"==document.location.protocol?"https://pi":"http://cdn")+".pardot.com/pd.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)}window.attachEvent?window.attachEvent("onload",a):window.addEventListener("load",a,!1)})();</script><script type="text/javascript" id="">(function(a,b,c,d,e){a=b.createElement(c);b=b.getElementsByTagName(c)[0];a.async=1;a.id=e;a.src=d;b.parentNode.insertBefore(a,b)})(window,document,"script","https://tag.demandbase.com/fc70a7ed.min.js","demandbase_js_lib");</script>
+
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","529867953829810");fbq("track","PageView");</script>
+<noscript>
+ <img height="1" width="1" src="https://www.facebook.com/tr?id=529867953829810&amp;ev=PageView
+&amp;noscript=1">
+</noscript>
+<script type="text/javascript" id="">!function(a,c,e){function d(){var a=c.getElementsByTagName("script")[0],b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src="https://beacon-v2.helpscout.net";a.parentNode.insertBefore(b,a)}if(a.Beacon=e=function(c,b,d){a.Beacon.readyQueue.push({method:c,options:b,data:d})},e.readyQueue=[],"complete"===c.readyState)return d();a.attachEvent?a.attachEvent("onload",d):a.addEventListener("load",d,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript" id="">window.Beacon("init","f6586bfc-8823-473b-969d-2730e321b633");</script><img style="display:none" alt="" aria-hidden="true" id="db_bw_pixel_ad" src="./Templates_files/demandbase"><div></div><div></div><div></div><div id="demandbase-autocomplete"><div id="demandbase-company-autocomplete-widget" class="demandbase-company-autocomplete ui-widget"><input style="display:none" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"><ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all demandbase-company-autocomplete" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul></div></div><div id="beacon-container"><div data-reactroot="" class="Beacon"><div class="css-14qxuql e1i7t89x0"></div><div class="BeaconContainer is-configDisplayRight css-19yda2i e1swzdlb0 BeaconContainer-enter-done" data-css-with-delay="false"><iframe id="" title="Help Scout Beacon" src="./Templates_files/saved_resource(11).html"></iframe></div><div class="BeaconFabButtonFrame css-10dglhn e1b5xbr10" style="border-radius: 60px; height: 60px; position: fixed; transform: scale(1); width: 60px; z-index: 1049;"><iframe id="" title="Help Scout Beacon" src="./Templates_files/saved_resource(12).html"></iframe></div><span></span><!-- react-empty: 7 --><span></span></div></div><style id="wistia_18_style" type="text/css" class="wistia_injected_style">
+@font-face {
+font-family: 'WistiaPlayerOverpassNumbers';
+src: url(data:application/x-font-ttf;charset=utf-8;base64,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);
+}
+</style></body></html>

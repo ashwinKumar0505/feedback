@@ -1,0 +1,50 @@
+.LoginPage{
+  width:100vw;
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background-color: #bd6c4c;
+}
+.Login{
+  width:500px;
+  border:1px solid black;
+  padding:30px;
+  background: white;
+}
+.Login input{
+  width:90%;
+  height:50px;
+  margin:10px;
+  background-color: #f1f3f2;
+  outline: none;
+  border:none;
+  border-radius: 10px;
+  padding:10px;
+  box-sizing: border-box;
+}
+.Login button{
+  width:90%;
+  height:40px;
+  outline: none;
+  border: none;
+  background-color: #eb9776;
+  border-radius: 10px;
+  padding:10px;
+  cursor: pointer;
+  margin:10px;
+  color:white;
+  font-weight: 800
+}
+.Login button:hover{
+  transform: scaleY(1.2);
+  background-color: #ff8555;
+  transition:transform 0.2s; 
+}
+.GoLogin{
+  text-decoration: underline;
+  font-size: 1.2em;
+  color: firebrick;
+  cursor: pointer;
+  font-weight:800;
+}

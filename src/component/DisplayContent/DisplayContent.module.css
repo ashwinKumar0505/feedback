@@ -1,0 +1,34 @@
+.DisplayContent table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.DisplayContent td, .DisplayContent th {
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  padding: 15px;
+}
+
+.DisplayContent tr:nth-child(even){background-color: #f2f2f2;}
+
+.DisplayContent th {
+  padding:15px;
+  text-align: center;
+  background-color: rgb(235, 151, 118);
+  color: white;
+}
+.Data{
+  animation-name: fadeInUp;
+  animation-duration: 2s; 
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

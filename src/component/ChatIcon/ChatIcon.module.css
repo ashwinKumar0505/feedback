@@ -1,0 +1,58 @@
+.Icon{
+  border-radius: 100%;
+  padding:10px;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  cursor: pointer;
+  width:50px;
+  height:50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(235, 151, 118);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
+
+}
+.ChatIcon {
+  width: 30px;
+  height: 25px;
+  border:2px solid white;
+  border-radius: 100px;
+  position: relative;
+}
+.ChatCancel{
+  background-color: red
+}
+.ChatIcon:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 3px;
+    bottom: -9px;
+    border-left: 10px solid transparent;
+    border-right: 2px solid transparent;
+    border-top: 10px solid white  ;
+}
+.ChatIcon:active{
+  transform: rotate(200deg);
+
+}
+.Icon:active{
+  transform: translate(2px,2px)
+}
+.Icon:hover{
+box-shadow: rgba(0, 0, 0, 0.9) 0px 4px 8px 0px
+}
+
+.ChatClose {
+  color:white;
+  font: 2em arial, sans-serif;
+  font-weight: bolder;
+}
+
+.ChatClose:active{
+transform: rotate(200deg);
+}
