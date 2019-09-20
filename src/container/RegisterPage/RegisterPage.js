@@ -45,7 +45,6 @@ class RegisterPage extends Component {
     }
   };
   render() {
-    console.log(this.props);
     return (
       <div className={classes.RegisterPage}>
         <div className={classes.RegisterWindow}>

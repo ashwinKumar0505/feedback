@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./ChatIcon.module.css";
 const ChatIcon = props => {
-  console.log(props.changeChatSign);
   return (
     <div className={classes.Icon} onClick={props.openTheChat}>
       {props.changeChatSign ? (
