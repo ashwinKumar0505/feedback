@@ -1,12 +1,20 @@
 import React from "react";
-
-const DisplayImageName = (props) => {
+import classes from "./DisplayImage.module.css";
+const DisplayImageName = props => {
   return (
+    props.show ?
     <div>
-      {props.images.map(image => {
-        return <p>{image[0].name}</p>;
+    <div className={classes.DisplayImageName}>
+      {props.images.map((image,index) => {
+        return (
+          <div className={classes.file} key={image[0].name}>
+            <p>{image[0].name}</p>;
+            <p style={{ color: "red", fontSize: "1.2em",cursor:"pointer"}} onClick={()=>props.deleteTheFile(image[0].name)}>&times;</p>
+          </div>
+        );
       })}
     </div>
+    </div> : null
   );
 };
 

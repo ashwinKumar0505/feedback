@@ -13,7 +13,7 @@ class DisplayContent extends Component {
   render() {
     return this.props.isLoaded ? (
       <div className={classes.DisplayContent}>
-        <h1>FeedBack</h1>
+        <h1 style={{color:"white",boxShadow:"white 0px 0px 1px 11px",padding:"20px 25px"}}>FEED BACK</h1>
         <table>
           <tbody>
             <tr>

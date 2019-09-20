@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Users from "../Users/Users";
 import classes from "./ChatBoxSendMessage.module.css";
 import { connect } from "react-redux";
-import DisplayImageName from "./DisplayImageName/DisplayImageName"
+import DisplayImageName from "./DisplayImageName/DisplayImageName";
 import {
   storeTheFeedBack,
   nameChangeHandler,
@@ -10,18 +10,33 @@ import {
   emailChangeHandler,
   helpChangeHandler,
 } from "../../../Store/ActionCreators";
-
+import BackDrop from "../../BackDrop/BackDrop";
 
 const ChatBoxSendMessage = props => {
   const [images, setImages] = useState([]);
-  const [imageCount,setImageCount]=useState(0)
-
-  const imageHandler=(event)=>{
-       setImages([...images,event.target.files])
-       setImageCount(imageCount+1)
-       console.log(images)
+  const [imageCount, setImageCount] = useState(0);
+  const [showFiles, setshowFiles] = useState(false);
+  const imageHandler = event => {
+    if (event.target.files.length!==0) {
+      setImages([...images, event.target.files]);
+      setImageCount(imageCount + 1);
+    }
+  };
+  const filesOpenHandler = () => {
+    setshowFiles(true);
+  };
+  const filesCloseHandler = () => {
+    setshowFiles(false);
+  };
+  const deleteTheFile=(file)=>{
+        setImages(images.filter(image=>image[0].name!==file))
+        setImageCount(imageCount - 1);
   }
-
+  useEffect(() => {
+      if(images.length===0){
+          setshowFiles(false);
+      } 
+  }, [images])
   return (
     <div>
       <div className={classes.UpperChatBox}>
@@ -94,32 +109,37 @@ const ChatBoxSendMessage = props => {
           >
             <textarea placeholder="How can we help" required></textarea>
             <div className={classes.imageSelector}>
-            {imageCount===0 ? <span></span> : <span>{imageCount} files</span>
-
-            }
-            <link
-              href="https://fonts.googleapis.com/icon?family=Material+Icons"
-              rel="stylesheet"
-            ></link>
-            <input
-              type="file"
-              id="image_uploads"
-              name="image_uploads"
-              className={classes.fileUpload}
-              onChange={imageHandler}
-            />
-            <label for="image_uploads">
-              <i className="material-icons" style={{ fontSize: "30" }}>
-                add_a_photo
-              </i>
-            </label>
-          </div>
+              {imageCount === 0 ? (
+                <span></span>
+              ) : (
+                <span className={classes.imageCount} onClick={filesOpenHandler}>
+                  {imageCount} files
+                </span>
+              )}
+              <link
+                href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                rel="stylesheet"
+              ></link>
+              <input
+                type="file"
+                id="image_uploads"
+                name="image_uploads"
+                className={classes.fileUpload}
+                onChange={imageHandler}
+              />
+              <label for="image_uploads">
+                <i className="material-icons" style={{ fontSize: "30" }}>
+                  add_a_photo
+                </i>
+              </label>
+            </div>
           </div>
           <br></br>
           <button className={classes.SendButton}>Send a message</button>
         </form>
       </div>
-      <DisplayImageName images={images} />
+      <BackDrop show={showFiles} close={filesCloseHandler} />
+      <DisplayImageName images={images} show={showFiles} deleteTheFile={deleteTheFile}/>
     </div>
   );
 };

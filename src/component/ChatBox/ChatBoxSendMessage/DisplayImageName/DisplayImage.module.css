@@ -1,0 +1,14 @@
+.DisplayImageName{
+  background-color:#ffffff;
+  padding:20px;
+  box-sizing: border-box;
+  font-size:0.8em;
+  z-index:100;  
+  position: fixed;
+  bottom:0px;
+  width: 100%;
+}
+.file{
+  display: flex;
+  justify-content: space-between
+}
