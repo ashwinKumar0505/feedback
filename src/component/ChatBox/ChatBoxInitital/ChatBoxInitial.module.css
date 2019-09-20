@@ -9,9 +9,6 @@
 }
 
 
-
-
-
 .EmailDiv {
   padding: 25px 20px;
   display: flex;
@@ -31,7 +28,7 @@
 .EmailDiv:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 15px 0px;
-    transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 
@@ -50,4 +47,20 @@
   flex: 0%;
   align-self: center;
   margin-right: 7%
+}
+
+@media screen and (max-height:570px) {
+  .ShouldHide {
+    display: none;
+  }
+
+  .EmailDiv {
+    top: 0;
+  }
+
+  .UpperChatBox {
+    padding: 1px;
+    padding-bottom: 0.1px;
+    font-size: 1em;
+  }
 }

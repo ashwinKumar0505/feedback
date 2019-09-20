@@ -9,7 +9,7 @@ const ChatBoxInitital = props => {
           Start a conversation
         </p>
         <Users />
-        <p style={{ fontWeight: "300", color: "white" }}>
+        <p style={{ fontWeight: "300", color: "white" }} className={classes.ShouldHide}>
           What Channel do you prefer?
         </p>
       </div>

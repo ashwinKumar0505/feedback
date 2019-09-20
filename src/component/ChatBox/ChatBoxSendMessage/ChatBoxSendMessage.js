@@ -64,10 +64,11 @@ const ChatBoxSendMessage = props => {
             margin: 0,
             marginTop: "10px",
           }}
+          className={classes.ShouldHide}
         >
           How can we help?
         </p>
-        <p style={{ fontWeight: "300", color: "white", margin: 0 }}>
+        <p style={{ fontWeight: "300", color: "white", margin: 0 }} className={classes.ShouldHide}>
           We usually respond in a few hours
         </p>
       </div>

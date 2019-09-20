@@ -3,3 +3,8 @@
     height: 46.58px;
     font-size: calc( 13 / 13 * var(--BlueConfigGlobalFontSize,13px) );
 }
+@media screen and (max-height:570px){
+.Users{
+    display: none;
+}
+}

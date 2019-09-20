@@ -2,7 +2,7 @@ import React from 'react';
 import classes from "./Spinner.module.css"
 function Spinner(){
   return(
-  <div style={{MarginTop:"100px"}}>
+  <div style={{margin:"300px auto" ,width:"500px"}}>
     <div className={classes.loader}>Loading...</div>
   
   </div>

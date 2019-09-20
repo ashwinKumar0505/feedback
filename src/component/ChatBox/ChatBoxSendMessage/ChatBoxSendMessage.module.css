@@ -118,3 +118,15 @@
   margin-left: 19px;
 
 }
+
+@media screen and (max-height:570px) {
+  .ShouldHide {
+    display: none;
+  }
+
+  .UpperChatBox {
+    padding: 1px;
+    padding-bottom: 0;
+    font-size: 1em;
+  }
+}
