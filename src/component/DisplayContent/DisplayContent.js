@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {Link} from "react-router-dom"
 import {
   fetchingTheDetails,
   gettingTheFeedBacks,
@@ -13,7 +14,11 @@ class DisplayContent extends Component {
   render() {
     return this.props.isLoaded ? (
       <div className={classes.DisplayContent}>
-        <h1 style={{color:"white",boxShadow:"white 0px 0px 1px 11px",padding:"20px 25px"}}>FEED BACK</h1>
+          <Link to="/Login">
+          <button className={classes.LogOut}>LOG OUT</button>
+        </Link>
+        <h1 style={{color:"white",boxShadow:"white 0px 0px 1px 11px",width:"30%",margin:"10px auto",padding:"15px 20px" }}>FEED BACK</h1>
+        <div className={classes.TableDiv}>
         <table>
           <tbody>
             <tr>
@@ -34,6 +39,7 @@ class DisplayContent extends Component {
             })}
           </tbody>
         </table>
+        </div>
       </div>
     ) : (
       <Spinner />

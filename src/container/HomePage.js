@@ -60,9 +60,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className={classes.HomePage}>
-        <Link to="/Login">
-          <button className={classes.LogOut}>LOG OUT</button>
-        </Link>
+      
         <DisplayContent />
         <ChatBox
           showInitial={this.state.showInitial}
