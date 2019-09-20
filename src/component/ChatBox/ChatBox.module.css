@@ -40,7 +40,7 @@
   }
 }
 
-@media screen and (max-height:570px) , screen and (min-width:445px){
+@media screen and (max-height:570px){
 .ChatBox {
     height: 82%;
     right: 0;
