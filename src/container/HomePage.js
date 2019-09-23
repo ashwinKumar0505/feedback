@@ -3,7 +3,6 @@ import ChatBox from "../component/ChatBox/ChatBox";
 import ChatIcon from "../component/ChatIcon/ChatIcon";
 import DisplayContent from "../component/DisplayContent/DisplayContent";
 import classes from "./HomePage.module.css";
-import { Link } from "react-router-dom";
 import {connect} from "react-redux";
 import {changeTheLoginState} from "../Store/actions/auth"
 class HomePage extends Component {
@@ -82,4 +81,12 @@ class HomePage extends Component {
     );
   }
 }
-export default HomePage;
+
+const mapDispatchToProps=dispatch=>{
+  return {
+  changeTheLoginState:()=>dispatch(changeTheLoginState())
+  }
+}
+
+
+export default connect(null,mapDispatchToProps)(HomePage);

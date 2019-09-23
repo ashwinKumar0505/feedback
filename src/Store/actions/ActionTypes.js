@@ -14,3 +14,6 @@ export const LOG_OUT="LOG_OUT"
 export const CLEAR_THE_DATA="CLEAR_THE_DATA"
 
 export const CHANGE_THE_LOGIN_STATE="CHANGE_THE_LOGIN_STATE"
+
+
+export const CHECK_AUTH="CHECK_AUTH"

@@ -50,7 +50,6 @@ const reducer = (state = initialState, action) => {
         },
       };
     case actionTypes.GETTING_THE_FEEDBACKS:
-      console.log("here to get")
       return {
         ...state,
         data:action.data,
