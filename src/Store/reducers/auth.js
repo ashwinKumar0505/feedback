@@ -1,8 +1,8 @@
 import * as actionTypes from "../actions/ActionTypes";
 
 const initialState={
-  token:null,
-  userId:null,
+  token:localStorage.getItem('token'),
+  userId:localStorage.getItem('userId'),
   error:null,
   loading:false,
   logIn:false
@@ -18,9 +18,6 @@ const authReducer=(state=initialState,action)=>{
       return {...state,error:action.error,loading:false,logIn:false}
     case actionTypes.LOG_OUT:
       return {token:null,userId:null,logIn:false}
-    case actionTypes.CHANGE_THE_LOGIN_STATE:
-      return{...state,logIn:false}
-
     default:return state;
 
   }
