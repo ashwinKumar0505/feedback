@@ -4,6 +4,8 @@ import ChatIcon from "../component/ChatIcon/ChatIcon";
 import DisplayContent from "../component/DisplayContent/DisplayContent";
 import classes from "./HomePage.module.css";
 import { Link } from "react-router-dom";
+import {connect} from "react-redux";
+import {changeTheLoginState} from "../Store/actions/auth"
 class HomePage extends Component {
   state = {
     showChatBox: false,
@@ -60,7 +62,6 @@ class HomePage extends Component {
   render() {
     return (
       <div className={classes.HomePage}>
-      
         <DisplayContent />
         <ChatBox
           showInitial={this.state.showInitial}

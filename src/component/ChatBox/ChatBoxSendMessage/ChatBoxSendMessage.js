@@ -9,7 +9,7 @@ import {
   subjectChangeHandler,
   emailChangeHandler,
   helpChangeHandler,
-} from "../../../Store/ActionCreators";
+} from "../../../Store/actions/ActionCreators";
 import BackDrop from "../../BackDrop/BackDrop";
 
 const ChatBoxSendMessage = props => {
@@ -75,7 +75,7 @@ const ChatBoxSendMessage = props => {
       <div className={classes.Form}>
         <form
           onSubmit={event => {
-            props.storeTheFeedBack(event, props.feedBack);
+            props.storeTheFeedBack(event, props.feedBack,props.token,props.userId);
             props.changeToFinal();
           }}
         >
@@ -147,7 +147,9 @@ const ChatBoxSendMessage = props => {
 
 const mapStateToProps = state => {
   return {
-    feedBack: state.feedBack,
+    feedBack: state.reducer.feedBack,
+    token:state.authReducer.token,
+    userId:state.authReducer.userId
   };
 };
 const mapDispatchToProps = dispatch => {
@@ -156,8 +158,8 @@ const mapDispatchToProps = dispatch => {
     subjectChangeHandler: event => dispatch(subjectChangeHandler(event)),
     emailChangeHandler: event => dispatch(emailChangeHandler(event)),
     helpChangeHandler: event => dispatch(helpChangeHandler(event)),
-    storeTheFeedBack: (event, feedBack) =>
-      dispatch(storeTheFeedBack(event, feedBack)),
+    storeTheFeedBack: (event, feedBack,token,userId) =>
+    dispatch(storeTheFeedBack(event, feedBack,token,userId)),
   };
 };
 export default connect(

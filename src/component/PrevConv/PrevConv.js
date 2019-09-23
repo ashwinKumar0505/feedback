@@ -42,7 +42,7 @@ const PrevConv = props => {
 
 const mapStateToProps = state => {
   return {
-    data: state.data,
+    data: state.reducer.data,
   };
 };
 export default connect(mapStateToProps)(PrevConv);

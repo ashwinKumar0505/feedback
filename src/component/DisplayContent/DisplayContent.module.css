@@ -44,6 +44,11 @@
 .DisplayContent table {
   border-radius: 50px;
 }
+.DisplayContent tr{
+  animation-name: fadeInUp;
+    animation-duration: 2s;
+
+}
 
 .DisplayContent td,
 .DisplayContent th {
@@ -85,6 +90,15 @@ table tr:first-child th:last-child {
 .Data {
   animation-name: fadeInUp;
   animation-duration: 2s;
+}
+
+.noItems{
+  color:white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top:100px;
 }
 
 @keyframes fadeInUp {

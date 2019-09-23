@@ -1,4 +1,4 @@
-import * as actionTypes from "../Store/ActionTypes";
+import * as actionTypes from "../actions/ActionTypes";
 const initialState = {
   feedBack: {
     name: "",
@@ -50,10 +50,17 @@ const reducer = (state = initialState, action) => {
         },
       };
     case actionTypes.GETTING_THE_FEEDBACKS:
+      console.log("here to get")
       return {
         ...state,
         data:action.data,
         isLoaded:true
+      }
+    case actionTypes.CLEAR_THE_DATA :
+      return {
+        ...state,
+        data:[],
+        isLoaded:false
       }
     default:
       return state;

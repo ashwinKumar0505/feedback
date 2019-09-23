@@ -1,11 +1,20 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './App.css';
 import HomePage from './container/HomePage';
 import Login from "./container/Login/Login"
 import Register from "./container/RegisterPage/RegisterPage"
 import {Route,Switch} from "react-router-dom"
 import Success from './component/Success/Success';
-function App() {
+import {connect} from "react-redux"
+import { authCheckState } from './Store/actions/auth'
+import {withRouter} from "react-router-dom"
+function App(props) {
+
+  useEffect(()=>{
+    console.log("here to use effect")
+    props.authCheckState();
+   },[props])
+
   return (
     <div className="App">
       <Switch >
@@ -18,4 +27,10 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps=dispatch=>{
+   return {
+     authCheckState :()=>dispatch(authCheckState())
+   }
+}
+
+export default withRouter(connect(null,mapDispatchToProps)(App));

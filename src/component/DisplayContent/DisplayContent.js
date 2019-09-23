@@ -4,17 +4,23 @@ import { Link } from "react-router-dom";
 import {
   fetchingTheDetails,
   gettingTheFeedBacks,
-} from "../../Store/ActionCreators";
+  clearTheData
+} from "../../Store/actions/ActionCreators";
+import cloud from "../../assets/cloud2.png"
+import {logOut } from "../../Store/actions/auth"
 import classes from "./DisplayContent.module.css";
 import Spinner from "../Spinner/Spinner";
 class DisplayContent extends Component {
   componentDidMount() {
-    this.props.gettingTheDetails();
+    this.props.gettingTheDetails(this.props.token,this.props.userId);
+  }
+  componentWillUnmount(){
+    console.log("component unmounted")
   }
   render() {
     return this.props.isLoaded ? (
       <div className={classes.DisplayContent}>
-        <Link to="/Login">
+        <Link to="/" onClick={()=>{this.props.logOut() ; this.props.clearTheData();} }>
           <button className={classes.LogOut}>LOG OUT</button>
         </Link>
         <h1
@@ -28,6 +34,7 @@ class DisplayContent extends Component {
         >
           FEED BACK
         </h1>
+      {this.props.data.length!==0 ? 
         <div className={classes.TableDiv}>
           <table>
             <tbody>
@@ -49,8 +56,12 @@ class DisplayContent extends Component {
               })}
             </tbody>
           </table>
-        </div>
-      </div>
+        </div>: <div className={classes.noItems}>
+        <img src={cloud} alt="no items" height="100px" width="100px" />
+        <h1>No FeedBacks</h1>
+        <p>Click on the chat Icon to give Feed backs</p>
+      </div>}
+      </div> 
     ) : (
       <Spinner />
     );
@@ -58,15 +69,19 @@ class DisplayContent extends Component {
 }
 const mapStateToProps = state => {
   return {
-    feedBack: state.feedBack,
-    data: state.data,
-    isLoaded: state.isLoaded,
+    feedBack: state.reducer.feedBack,
+    data: state.reducer.data,
+    isLoaded: state.reducer.isLoaded,
+    token:state.authReducer.token,
+    userId:state.authReducer.userId
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    gettingTheDetails: () => dispatch(fetchingTheDetails()),
+    gettingTheDetails: (token,userId) => dispatch(fetchingTheDetails(token,userId)),
     gettingTheFeedBacks: () => dispatch(gettingTheFeedBacks()),
+    logOut:()=>dispatch(logOut()),
+    clearTheData:()=>dispatch(clearTheData())
   };
 };
 

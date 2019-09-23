@@ -8,9 +8,10 @@
 }
 .RegisterWindow{
   width:500px;
-  border:1px solid black;
-  padding:30px;
+  border: 4px solid #eb9776;
+  padding: 30px;
   background: white;
+  box-shadow: white 0px 0px 10px 25px;
 }
 .RegisterWindow input{
   width:90%;
