@@ -3,7 +3,7 @@ import './App.css';
 import HomePage from './container/HomePage';
 import Login from "./container/Login/Login"
 import Register from "./container/RegisterPage/RegisterPage"
-import {Route,Switch} from "react-router-dom"
+import {Route,Switch} from "react-router"
 import Success from './component/Success/Success';
 import {connect} from "react-redux"
 import { authCheckState } from './Store/actions/auth'

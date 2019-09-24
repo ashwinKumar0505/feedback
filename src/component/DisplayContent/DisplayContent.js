@@ -63,7 +63,9 @@ class DisplayContent extends Component {
       </div>}
       </div> 
     ) : (
+      <div className={classes.Spinner}>
       <Spinner />
+      </div>
     );
   }
 }

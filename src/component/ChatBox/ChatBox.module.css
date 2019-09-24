@@ -15,9 +15,25 @@
   background-color: red
 }
 
-.chatComponent::-webkit-scrollbar {
-  width: 0 !important
+.chatComponent ::-webkit-scrollbar {
+  width: 10px;
 }
+
+/* Track */
+.chatComponent ::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.chatComponent ::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+.chatComponent ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 
 .chatComponent {
   height: 90%;

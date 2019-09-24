@@ -101,6 +101,10 @@ table tr:first-child th:last-child {
   margin-top: 100px;
 }
 
+.Spinner{
+  margin-top:350px;
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -117,5 +121,8 @@ table tr:first-child th:last-child {
   .DisplayContent h1 {
     font-size: 1.2em;
     width: 100%;
+  }
+  .Spinner{
+    margin-top:250px;
   }
 }
