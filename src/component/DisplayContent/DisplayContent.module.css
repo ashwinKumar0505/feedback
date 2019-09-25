@@ -44,7 +44,7 @@
 .DisplayContent table {
   border-radius: 50px;
 }
-
+  
 .DisplayContent tr {
   animation-name: fadeInUp;
   animation-duration: 2s;

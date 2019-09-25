@@ -1,17 +1,18 @@
 import React,{useEffect} from 'react';
-import './App.css';
-import HomePage from './container/HomePage';
-import Login from "./container/Login/Login"
-import Register from "./container/RegisterPage/RegisterPage"
-import {Route,Switch} from "react-router"
-import Success from './component/Success/Success';
-import {connect} from "react-redux"
-import { authCheckState } from './Store/actions/auth'
 import {withRouter} from "react-router-dom"
+import {connect} from "react-redux"
+import {Route,Switch} from "react-router"
+
+import Register from "./container/RegisterPage/RegisterPage"
+import Success from './component/Success/Success';
+import Login from "./container/Login/Login"
+import { authCheckState } from './Store/actions/auth'
+import HomePage from './container/HomePage';
+
+import './App.css';
 function App(props) {
 
   useEffect(()=>{
-    console.log("here to use effect")
     props.authCheckState();
    },[props])
 

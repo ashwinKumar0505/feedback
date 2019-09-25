@@ -1,21 +1,17 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+
 import ChatBox from "../component/ChatBox/ChatBox";
 import ChatIcon from "../component/ChatIcon/ChatIcon";
 import DisplayContent from "../component/DisplayContent/DisplayContent";
-import classes from "./HomePage.module.css";
-import {connect} from "react-redux";
-import {changeTheLoginState} from "../Store/actions/auth"
+import { changeTheLoginState } from "../Store/actions/auth"
+
 class HomePage extends Component {
   state = {
     showChatBox: false,
     changeChatSign: false,
     showInitial: true,
-    feedBack: {
-      name: "",
-      subject: "",
-      email: "",
-      help: "",
-    },
     showFinal: false,
     showSecond: false,
     showPrevConv: false,
@@ -60,7 +56,8 @@ class HomePage extends Component {
   };
   render() {
     return (
-      <div className={classes.HomePage}>
+      this.props.userId ? 
+      <div>
         <DisplayContent />
         <ChatBox
           showInitial={this.state.showInitial}
@@ -77,10 +74,17 @@ class HomePage extends Component {
           changeChatSign={this.state.changeChatSign}
           openTheChat={this.chatBoxHandler}
         />
-      </div>
+      </div> : <Redirect to="/" />
     );
   }
 }
+
+const mapStateToProps=state=>{
+  return {
+    userId:state.authReducer.userId
+  }
+}
+
 
 const mapDispatchToProps=dispatch=>{
   return {
@@ -89,4 +93,4 @@ const mapDispatchToProps=dispatch=>{
 }
 
 
-export default connect(null,mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps,mapDispatchToProps)(HomePage);
