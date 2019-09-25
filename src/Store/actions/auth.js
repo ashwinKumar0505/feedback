@@ -14,14 +14,6 @@ export const authSuccess = (token, userId) => {
   };
 };
 
-export const authCheck = (token, userId) => {
-  return {
-    type: actionTypes.CHECK_AUTH,
-    idToken: token,
-    userId: userId,
-  };
-};
-
 export const authFail = error => {
   return {
     type: actionTypes.AUTH_FAIL,
@@ -73,23 +65,6 @@ export const auth = (email, password) => {
       .catch(error => {
         dispatch(authFail(error));
       });
-  };
-};
-
-export const authCheckState = () => {
-  return dispatch => {
-    const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");
-    if (!token) {
-      dispatch(logOut());
-    } else {
-      const expirationDate = localStorage.getItem("expirationDate");
-      if (expirationDate <= new Date()) {
-        dispatch(logOut());
-      } else {
-        dispatch(authCheck(token, userId));
-      }
-    }
   };
 };
 

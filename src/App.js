@@ -1,25 +1,20 @@
-import React,{useEffect} from 'react';
-import {withRouter} from "react-router-dom"
-import {connect} from "react-redux"
-import {Route,Switch} from "react-router"
+import React from 'react';
+import { connect } from "react-redux"
+import { Route , Switch } from "react-router"
 
 import Register from "./container/RegisterPage/RegisterPage"
 import Success from './component/Success/Success';
 import Login from "./container/Login/Login"
-import { authCheckState } from './Store/actions/auth'
 import HomePage from './container/HomePage';
-
 import './App.css';
-function App(props) {
+import PrivateRoute from './component/PrivateRouter/PrivateRoute';
 
-  useEffect(()=>{
-    props.authCheckState();
-   },[props])
+function App(props) {
 
   return (
     <div className="App">
       <Switch >
-       <Route path="/home-page" component={HomePage} />
+        <PrivateRoute path="/home-page" component={HomePage} userId={props.userId}/>
        <Route path="/register" component={Register} />
        <Route path="/success" component={Success} />
        <Route path="/" component={Login} />
@@ -28,10 +23,10 @@ function App(props) {
   );
 }
 
-const mapDispatchToProps=dispatch=>{
-   return {
-     authCheckState :()=>dispatch(authCheckState())
-   }
+const mapStateToProps=state=>{
+  return {
+    userId:state.authReducer.userId
+  }
 }
 
-export default withRouter(connect(null,mapDispatchToProps)(App));
+export default connect(mapStateToProps)(App);

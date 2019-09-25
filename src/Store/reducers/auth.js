@@ -9,6 +9,7 @@ const initialState = {
 };
 
 const authReducer = (state = initialState, action) => {
+  console.log(state.logIn)
   switch (action.type) {
     case actionTypes.AUTH_START:
       return { ...state, 
@@ -22,15 +23,6 @@ const authReducer = (state = initialState, action) => {
         error: null,
         loading: false,
         logIn: true,
-      };
-    case actionTypes.CHECK_AUTH:
-      return {
-        ...state,
-        token: action.idToken,
-        userId: action.userId,
-        error: null,
-        loading: false,
-        logIn: false,
       };
     case actionTypes.AUTH_FAIL:
       return { ...state, 
