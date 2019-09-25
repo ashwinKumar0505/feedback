@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import ChatBox from "../component/ChatBox/ChatBox";
@@ -16,6 +15,9 @@ class HomePage extends Component {
     showSecond: false,
     showPrevConv: false,
   };
+  componentDidMount(){
+    this.props.changeTheLoginState();
+  }
   chatBoxHandler = () => {
     this.setState(prev => ({
       showChatBox: !prev.showChatBox,
@@ -56,7 +58,6 @@ class HomePage extends Component {
   };
   render() {
     return (
-      this.props.userId ? 
       <div>
         <DisplayContent />
         <ChatBox
@@ -74,17 +75,10 @@ class HomePage extends Component {
           changeChatSign={this.state.changeChatSign}
           openTheChat={this.chatBoxHandler}
         />
-      </div> : <Redirect to="/" />
+      </div>
     );
   }
 }
-
-const mapStateToProps=state=>{
-  return {
-    userId:state.authReducer.userId
-  }
-}
-
 
 const mapDispatchToProps=dispatch=>{
   return {
@@ -93,4 +87,4 @@ const mapDispatchToProps=dispatch=>{
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(HomePage);
+export default connect(null,mapDispatchToProps)(HomePage);
