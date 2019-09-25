@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link , Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+
 import classes from "./Login.module.css";
-//import fire from "../../config/firebase";
-import {connect} from "react-redux"
-import {auth} from "../../Store/actions/auth"
+import { auth } from "../../Store/actions/auth";
+
 class Login extends Component {
   state = {
     email: "",
     password: "",
-    message: "Wait...You Are Been Redirecting To Home Page",
-    pageLoading: false,
     error:""
   };
   emailChangeHandler = event => {
@@ -24,25 +23,6 @@ class Login extends Component {
       error:""
     });
   };
-  // login = event => {
-  //   this.setState({
-  //     pageLoading: true,
-  //   });
-  //   event.preventDefault();
-  //   fire
-  //     .auth()
-  //     .signInWithEmailAndPassword(this.state.email, this.state.password)
-  //     .then(Response => {
-  //       console.log(Response)
-  //       this.props.history.push("/home-page");
-  //     })
-  //     .catch(error => {
-  //       this.setState({
-  //         error: error.message,
-  //         pageLoading:false
-  //       });
-  //     });
-  // };
   submitHandler=(event)=>{
      event.preventDefault();
      this.props.onAuth(this.state.email,this.state.password)
@@ -92,7 +72,7 @@ class Login extends Component {
     return (
       this.props.logIn ?
       <div>
-      {this.props.history.push("/home-page")}
+      <Redirect to="/home-page" />
       </div> :
       (<div className={classes.LoginPage}>
         <div className={classes.Login}>

@@ -2,14 +2,12 @@ import * as  actionTypes from "./ActionTypes"
 import axios from "axios"
 
 export const storeTheFeedBack=(event,feedback,token,userId)=>{
-  console.log(event)
   event.preventDefault();
   feedback={
     ...feedback,
     userId:userId
   }
   return dispatch => {
-    console.log(token)
     axios
       .post("https://chat-page-da0db.firebaseio.com/feedBack.json?auth=" + token,feedback)
       .then(Response => {
@@ -18,42 +16,12 @@ export const storeTheFeedBack=(event,feedback,token,userId)=>{
       .catch(error =>{
         console.log(error)
       })
-  // return {
-  //   type:actionTypes.STORE_THE_FEEDBACK,
-  //   data:feedback
-  // }
   };
 }
 const store=(feedBack)=>{
    return{
     type:actionTypes.STORE_THE_FEEDBACK,
     feedBack:feedBack
-  }
-}
-export const nameChangeHandler=(event)=>{
-  return{
-    type:actionTypes.NAME_CHANGE_HANDLER,
-    name:event.target.value,
-  }
-}
-export const subjectChangeHandler=(event)=>{
-  return{
-    type:actionTypes.SUBJECT_CHANGE_HANDLER,
-    subject:event.target.value,
-  }
-}
-export const emailChangeHandler=(event)=>{
-  return{
-    type:actionTypes.EMAIL_CHANGE_HANDLER,
-    email:event.target.value,
-  }
-}
-export const helpChangeHandler=(event)=>{
-console.log("here")
-
-  return{
-    type:actionTypes.HELP_CHANGE_HANDLER,
-    help:event.target.value,
   }
 }
 

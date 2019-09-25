@@ -47,3 +47,11 @@
   transform: scaleY(1.2);
   background-color: #ff8555;
 }
+
+
+
+@media (max-width:650px){
+  .RegisterWindow{
+    width:90%;
+  }
+}

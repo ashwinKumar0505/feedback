@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import fire from "../../config/firebase";
-import classes from "./RegisterPage.module.css";
 import Spinner from "../../component/Spinner/Spinner";
+import classes from "./RegisterPage.module.css";
 class RegisterPage extends Component {
   state = {
     fullName: "",

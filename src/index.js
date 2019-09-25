@@ -1,14 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import { combineReducers } from "redux";
 import { HashRouter } from "react-router-dom";
-import App from "./App";
 import {Provider} from "react-redux"
 import {createStore,applyMiddleware,compose} from "redux";
+import thunk from "redux-thunk"
+
+import App from "./App";
 import reducer from "./Store/reducers/Reducer"
 import authReducer from "./Store/reducers/auth"
-import thunk from "redux-thunk"
-import { combineReducers } from "redux";
+
+import "./index.css";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 

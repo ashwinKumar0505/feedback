@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./PrevConv.module.css";
 import { connect } from "react-redux";
 const PrevConv = props => {
-  console.log(props)
   return (
     <div>
       <div className={classes.UpperChatBox}>

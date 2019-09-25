@@ -1,23 +1,32 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Users from "../Users/Users";
-import classes from "./ChatBoxSendMessage.module.css";
 import { connect } from "react-redux";
+
 import DisplayImageName from "./DisplayImageName/DisplayImageName";
 import {
-  storeTheFeedBack,
-  nameChangeHandler,
-  subjectChangeHandler,
-  emailChangeHandler,
-  helpChangeHandler,
+  storeTheFeedBack
 } from "../../../Store/actions/ActionCreators";
 import BackDrop from "../../BackDrop/BackDrop";
+
+import classes from "./ChatBoxSendMessage.module.css";
 
 const ChatBoxSendMessage = props => {
   const [images, setImages] = useState([]);
   const [imageCount, setImageCount] = useState(0);
   const [showFiles, setshowFiles] = useState(false);
+  const [feedBack, changeFeedBack] = useState({
+    name: "",
+    subject: "",
+    email: "",
+    help: "",
+  });
+
+  const feedBackHandler=(name,value)=>{
+    changeFeedBack({...feedBack , [ name ]:value})
+  }
+
   const imageHandler = event => {
-    if (event.target.files.length!==0) {
+    if (event.target.files.length !== 0) {
       setImages([...images, event.target.files]);
       setImageCount(imageCount + 1);
     }
@@ -28,15 +37,15 @@ const ChatBoxSendMessage = props => {
   const filesCloseHandler = () => {
     setshowFiles(false);
   };
-  const deleteTheFile=(file)=>{
-        setImages(images.filter(image=>image[0].name!==file))
-        setImageCount(imageCount - 1);
-  }
+  const deleteTheFile = file => {
+    setImages(images.filter(image => image[0].name !== file));
+    setImageCount(imageCount - 1);
+  };
   useEffect(() => {
-      if(images.length===0){
-          setshowFiles(false);
-      } 
-  }, [images])
+    if (images.length === 0) {
+      setshowFiles(false);
+    }
+  }, [images]);
   return (
     <div>
       <div className={classes.UpperChatBox}>
@@ -68,14 +77,22 @@ const ChatBoxSendMessage = props => {
         >
           How can we help?
         </p>
-        <p style={{ fontWeight: "300", color: "white", margin: 0 }} className={classes.ShouldHide}>
+        <p
+          style={{ fontWeight: "300", color: "white", margin: 0 }}
+          className={classes.ShouldHide}
+        >
           We usually respond in a few hours
         </p>
       </div>
       <div className={classes.Form}>
         <form
           onSubmit={event => {
-            props.storeTheFeedBack(event, props.feedBack,props.token,props.userId);
+            props.storeTheFeedBack(
+              event,
+              feedBack,
+              props.token,
+              props.userId,
+            );
             props.changeToFinal();
           }}
         >
@@ -84,7 +101,7 @@ const ChatBoxSendMessage = props => {
             placeholder="Name"
             name="name"
             className={classes.name}
-            onChange={props.nameChangeHandler}
+            onChange={(event)=>feedBackHandler(event.target.name,event.target.value)}
             required
           />
           <input
@@ -92,7 +109,7 @@ const ChatBoxSendMessage = props => {
             placeholder="Subject"
             name="subject"
             className={classes.subject}
-            onChange={props.subjectChangeHandler}
+            onChange={(event)=>feedBackHandler(event.target.name,event.target.value)}
             required
           />
           <input
@@ -100,13 +117,13 @@ const ChatBoxSendMessage = props => {
             placeholder="Email address"
             name="email"
             className={classes.email}
-            onChange={props.emailChangeHandler}
+            onChange={(event)=>feedBackHandler(event.target.name,event.target.value)}
             required
           />
           <div
             className={classes.TextArea}
             name="help"
-            onChange={props.helpChangeHandler}
+            onChange={(event)=>feedBackHandler("help",event.target.value)}
           >
             <textarea placeholder="How can we help" required></textarea>
             <div className={classes.imageSelector}>
@@ -140,26 +157,25 @@ const ChatBoxSendMessage = props => {
         </form>
       </div>
       <BackDrop show={showFiles} close={filesCloseHandler} />
-      <DisplayImageName images={images} show={showFiles} deleteTheFile={deleteTheFile}/>
+      <DisplayImageName
+        images={images}
+        show={showFiles}
+        deleteTheFile={deleteTheFile}
+      />
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    feedBack: state.reducer.feedBack,
-    token:state.authReducer.token,
-    userId:state.authReducer.userId
+    token: state.authReducer.token,
+    userId: state.authReducer.userId,
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    nameChangeHandler: event => dispatch(nameChangeHandler(event)),
-    subjectChangeHandler: event => dispatch(subjectChangeHandler(event)),
-    emailChangeHandler: event => dispatch(emailChangeHandler(event)),
-    helpChangeHandler: event => dispatch(helpChangeHandler(event)),
-    storeTheFeedBack: (event, feedBack,token,userId) =>
-    dispatch(storeTheFeedBack(event, feedBack,token,userId)),
+      storeTheFeedBack: (event, feedBack, token, userId) =>
+      dispatch(storeTheFeedBack(event, feedBack, token, userId)),
   };
 };
 export default connect(
