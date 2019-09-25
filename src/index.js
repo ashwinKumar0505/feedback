@@ -4,11 +4,11 @@ import { combineReducers } from "redux";
 import { HashRouter } from "react-router-dom";
 import {Provider} from "react-redux"
 import {createStore,applyMiddleware,compose} from "redux";
-import thunk from "redux-thunk"
+import thunk from "redux-thunk";
 
 import App from "./App";
-import reducer from "./Store/reducers/Reducer"
-import authReducer from "./Store/reducers/auth"
+import reducer from "./Store/reducers/Reducer";
+import authReducer from "./Store/reducers/auth";
 
 import "./index.css";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

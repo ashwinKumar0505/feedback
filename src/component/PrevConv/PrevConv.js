@@ -1,6 +1,7 @@
 import React from "react";
-import classes from "./PrevConv.module.css";
 import { connect } from "react-redux";
+
+import classes from "./PrevConv.module.css";
 const PrevConv = props => {
   return (
     <div>

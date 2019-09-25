@@ -1,5 +1,6 @@
-import React,{useEffect,useState} from 'react'
-import {Redirect } from "react-router-dom"
+import React,{useEffect,useState} from 'react';
+import {Redirect } from "react-router-dom";
+
 import classes from './Success.module.css'
 const Success=()=>{
   const [redirectInitial,setRedirect]=useState(false)
