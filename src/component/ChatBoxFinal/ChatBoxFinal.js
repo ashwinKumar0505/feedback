@@ -2,7 +2,6 @@ import React from "react";
 import Users from "../../component/ChatBox/Users/Users";
 import classes from "./ChatBoxFinal.module.css";
 const ChatBoxFinal = props => {
-  console.log(props);
   return (
     <div className={classes.ChatBoxInitial}>
       <div className={classes.UpperChatBox}>

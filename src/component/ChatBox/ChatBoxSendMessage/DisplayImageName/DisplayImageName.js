@@ -5,7 +5,7 @@ const DisplayImageName = props => {
     props.show ?
     <div>
     <div className={classes.DisplayImageName}>
-      {props.images.map((image,index) => {
+      {props.images.map((image) => {
         return (
           <div className={classes.file} key={image[0].name}>
             <p>{image[0].name}</p>;

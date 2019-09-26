@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import ChatBox from "../component/ChatBox/ChatBox";
 import ChatIcon from "../component/ChatIcon/ChatIcon";
 import DisplayContent from "../component/DisplayContent/DisplayContent";
-import { changeTheLoginState } from "../Store/actions/auth"
+import { changeTheLoginState } from "../Store/actions/auth";
 
 class HomePage extends Component {
   state = {

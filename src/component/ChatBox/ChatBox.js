@@ -1,9 +1,11 @@
 import React from "react";
+
 import ChatBoxInitital from "./ChatBoxInitital/ChatBoxInitial";
 import ChatBoxSendMessage from "./ChatBoxSendMessage/ChatBoxSendMessage";
-import classes from "./ChatBox.module.css";
 import ChatBoxFinal from "../ChatBoxFinal/ChatBoxFinal";
-import PrevConv from "../PrevConv/PrevConv"
+import PrevConv from "../PrevConv/PrevConv";
+
+import classes from "./ChatBox.module.css";
   const ChatBox = props => {
     
     let chatComponent=null;

@@ -14,7 +14,7 @@ export const storeTheFeedBack=(event,feedback,token,userId)=>{
             dispatch(store(feedback));
       })
       .catch(error =>{
-        console.log(error)
+        return error
       })
   };
 }

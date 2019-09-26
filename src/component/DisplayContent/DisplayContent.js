@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 import {
   fetchingTheDetails,
   gettingTheFeedBacks,
   clearTheData
 } from "../../Store/actions/ActionCreators";
-import cloud from "../../assets/cloud2.png"
+import cloud from "../../assets/cloud2.png";
 import {logOut } from "../../Store/actions/auth"
-import classes from "./DisplayContent.module.css";
 import Spinner from "../Spinner/Spinner";
+
+import classes from "./DisplayContent.module.css";
 class DisplayContent extends Component {
   componentDidMount() {
     this.props.gettingTheDetails(this.props.token,this.props.userId);
-  }
-  componentWillUnmount(){
-    console.log("component unmounted")
   }
   render() {
     return this.props.isLoaded ? (
